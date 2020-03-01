@@ -50,28 +50,29 @@ namespace Character
 						isLockingOn = false;
 					}
 
-
 				}
 			}
 		}
 		void FixedUpdate()
 		{
-			Vector3 cameraForward = Vector3.Scale(Camera.main.transform.forward, new Vector3(1, 0, 1)).normalized;
-
-			Vector3 moveForward = cameraForward * inputVertical + Camera.main.transform.right * inputHorizontal;
-
-			playerRigidbody.velocity = moveForward * moveSpeed + new Vector3(0, playerRigidbody.velocity.y, 0);
-
+			playerRigidbody.velocity = new Vector3(inputHorizontal, playerRigidbody.velocity.y, inputVertical) * moveSpeed;
 
 			UpdateRotation();
-
-			//aniimation etc
 		}
 
 		private void UpdateRotation()
 		{
 			if (isLockingOn)
 			{
+				if (targetObject == null)
+				{
+					isLockingOn = false;
+
+					return;
+
+				}
+
+
 				Vector3 targetPosition = targetObject.transform.position;
 
 				targetPosition.y = this.transform.position.y;
