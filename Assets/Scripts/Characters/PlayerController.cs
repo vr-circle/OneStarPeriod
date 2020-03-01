@@ -55,7 +55,7 @@ namespace Character
 		}
 		void FixedUpdate()
 		{
-			playerRigidbody.velocity = new Vector3(inputHorizontal, playerRigidbody.velocity.y, inputVertical) * moveSpeed;
+			playerRigidbody.velocity = new Vector3(inputHorizontal, 0, inputVertical) * moveSpeed;
 
 			UpdateRotation();
 		}
