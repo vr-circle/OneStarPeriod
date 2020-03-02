@@ -13,14 +13,12 @@ namespace Character
 
 		private Slider slider;
 
-		[SerializeField]
-		private GameObject prefab;
-
 		private void Start()
 		{
 			hp = maxHp;
+
 			slider = this.gameObject.transform.Find("HPBar/Slider").gameObject.GetComponent<Slider>();
-			
+
 		}
 
 		private void Update()
@@ -30,10 +28,7 @@ namespace Character
 			slider.value = hp / maxHp;
 		if (hp <= 0)
 			{
-				// プレハブを取得
-				GameObject DestroyEffect = Instantiate(prefab, transform.position, transform.rotation);
 				Destroy(this.gameObject);
-				Destroy(DestroyEffect, 2.0f);
 			}
 
 		}
