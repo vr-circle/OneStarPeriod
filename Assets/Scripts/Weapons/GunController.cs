@@ -23,6 +23,8 @@ namespace Weapon
 		private float timeInterval = 0.1f;
 		private float elapsedTime = 0.0f;
 
+		public Rect BulletNumDispPos = new Rect(0, 0, 100, 50);  // 場所は後で決める
+
 
 		private void Update()
 		{
@@ -69,5 +71,11 @@ namespace Weapon
 				}
 			}
 		}
+
+		public void OnGUI()
+		{
+			GUI.Label(BulletNumDispPos, bulletNum.ToString());
+		}
+
 	}
 }
