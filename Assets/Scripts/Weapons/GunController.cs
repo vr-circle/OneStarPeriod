@@ -17,15 +17,21 @@ namespace Weapon
 
 		private float positionMargin = 1.0f;
 
-
+		private GUIStyle bulletNumGUI;
 
 		private bool isShooted = false;
 		private float timeInterval = 0.1f;
 		private float elapsedTime = 0.0f;
 
-		public Rect BulletNumDispPos = new Rect(0, 0, 100, 50);  // 場所は後で決める
 
-
+		private void Start()
+		{
+			bulletNumGUI = new GUIStyle
+			{
+				fontSize = 40,
+				// TODO: フォントもいい感じのやつにする
+			};
+		}
 		private void Update()
 		{
 			if (isShooted)
@@ -74,7 +80,7 @@ namespace Weapon
 
 		public void OnGUI()
 		{
-			GUI.Label(BulletNumDispPos, bulletNum.ToString());
+			GUI.Label(new Rect(0, Screen.height-40, 100, 50), bulletNum.ToString(), bulletNumGUI);
 		}
 
 	}
