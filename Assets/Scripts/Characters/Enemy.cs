@@ -43,7 +43,6 @@ namespace Character
 
 		}
 
-
 		public void LockedOn()
 		{
 			//UIを更新する,PlayerControllerから実行させる
