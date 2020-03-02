@@ -24,7 +24,14 @@ namespace Weapon
 		private float elapsedTime = 0.0f;
 
 
-
+		private void Start()
+		{
+			bulletNumGUI = new GUIStyle
+			{
+				fontSize = 40,
+				// TODO: フォントもいい感じのやつにする
+			};
+		}
 		private void Update()
 		{
 			if (isShooted)
@@ -73,7 +80,7 @@ namespace Weapon
 
 		public void OnGUI()
 		{
-			GUI.Label(new Rect(0, Screen.height-18, 100, 50), bulletNum.ToString());
+			GUI.Label(new Rect(0, Screen.height-40, 100, 50), bulletNum.ToString(), bulletNumGUI);
 		}
 
 	}
