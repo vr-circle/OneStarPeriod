@@ -38,7 +38,7 @@ namespace Character
 
 				if (Physics.Raycast(ray, out hitObject, 20.0f))
 				{
-					Debug.Log(hitObject.transform.position);
+					//Debug.Log(hitObject.transform.position);
 					if (hitObject.collider.tag == "Enemy")//fix has interface(whether possible to lock on) <-- tag=="Enemy"
 					{
 						isLockingOn = true;
