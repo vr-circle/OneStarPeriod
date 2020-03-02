@@ -27,7 +27,7 @@ namespace Character
 
 			slider.value = hp / maxHp;
 
-			if (hp < 0)
+			if (hp <= 0)//修正済
 			{
 				Destroy(this.gameObject);
 			}
