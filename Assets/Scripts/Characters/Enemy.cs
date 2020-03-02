@@ -28,7 +28,7 @@ namespace Character
 			Debug.Log(hp);
 
 			slider.value = hp / maxHp;
-      if (hp <= 0)
+		if (hp <= 0)
 			{
 				// プレハブを取得
 				GameObject DestroyEffect = Instantiate(prefab, transform.position, transform.rotation);
