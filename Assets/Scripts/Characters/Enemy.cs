@@ -26,8 +26,7 @@ namespace Character
 			Debug.Log(hp);
 
 			slider.value = hp / maxHp;
-
-			if (hp <= 0)
+      if (hp <= 0)
 			{
 				Destroy(this.gameObject);
 			}
