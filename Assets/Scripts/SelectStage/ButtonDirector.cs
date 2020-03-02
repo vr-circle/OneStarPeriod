@@ -33,10 +33,11 @@ namespace StageSelect
 				GameObject buttonObject = (GameObject)Instantiate(this.buttonPrefab, buttonPosition, Quaternion.identity);
 				buttonObject.transform.SetParent(mainCanvas.transform, false);
 
+				buttonObject.name = i.ToString();
 				Button button = buttonObject.GetComponent<Button>();
 				button.onClick.AddListener(() =>
 				{
-					Debug.Log(i);
+					Debug.Log(buttonObject.name);
 					//ここ上手くいっていない
 					//各シーンの読み込み処理
 				});
