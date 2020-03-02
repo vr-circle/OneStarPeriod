@@ -26,8 +26,7 @@ namespace Character
 			Debug.Log(hp);
 
 			slider.value = hp / maxHp;
-
-			if (hp <= 0)//修正済
+      if (hp <= 0)
 			{
 				Destroy(this.gameObject);
 			}
@@ -42,7 +41,6 @@ namespace Character
 			hp -= damage;
 
 		}
-
 
 		public void LockedOn()
 		{

@@ -6,11 +6,9 @@ using UnityEngine;
 
 namespace Character
 {
-
-
-
 	public class EnemyController : MonoBehaviour
 	{
-
+		//Enemyの出現を制御する予定？
 	}
+
 }

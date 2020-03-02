@@ -13,7 +13,7 @@ namespace Weapon
 
 		private float bulletSpeed = 20.0f;
 
-		private int bulletNum = 100;
+		private int bulletNum = 100000;
 
 		private float positionMargin = 1.0f;
 
