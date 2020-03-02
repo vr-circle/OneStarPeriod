@@ -15,6 +15,8 @@ namespace StageSelect
 
 		[SerializeField]
 		private GameObject buttonPrefab;
+		
+		
 		[SerializeField]
 		private List<Scene> stages;
 
@@ -35,13 +37,13 @@ namespace StageSelect
 				button.onClick.AddListener(() =>
 				{
 					Debug.Log(i);
+					//ここ上手くいっていない
 					//各シーンの読み込み処理
 				});
 
 				Text t = button.transform.FindChild("Text").gameObject.GetComponent<Text>();
 
 				t.text = "Stage" + i.ToString();
-
 
 			}
 		}
