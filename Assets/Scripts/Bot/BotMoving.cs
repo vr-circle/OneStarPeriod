@@ -28,12 +28,12 @@ public class BotMoving : MonoBehaviour
 	private float timeCount = 0;
 	private int randomFigure;
 	private float distance;
-	private MovePuttern movePuttern;
+	private MovePattern movePattern;
 	private float collideCount = 0;
 	private int collideMoving = 5;
 
 
-	private enum MovePuttern
+	private enum MovePattern
 	{
 		AntiClockwise = 0,
 		Clockwise = 1,
@@ -54,7 +54,7 @@ public class BotMoving : MonoBehaviour
 			{
 				case 0:
 					{
-						movePuttern = MovePuttern.AntiClockwise;
+						movePattern = MovePattern.AntiClockwise;
 						speed = 5;
 						Vector3 velocity = gameObject.transform.rotation * new Vector3(speed, 0, 0);
 						gameObject.transform.position += velocity * Time.deltaTime;
@@ -62,7 +62,7 @@ public class BotMoving : MonoBehaviour
 					}
 				case 1:
 					{
-						movePuttern = MovePuttern.Clockwise;
+						movePattern = MovePattern.Clockwise;
 						speed = 5;
 						Vector3 velocity = gameObject.transform.rotation * new Vector3(-1 * speed, 0, 0);
 						gameObject.transform.position += velocity * Time.deltaTime;
@@ -70,7 +70,7 @@ public class BotMoving : MonoBehaviour
 					}
 				case 2:
 					{
-						movePuttern = MovePuttern.Approaching;
+						movePattern = MovePattern.Approaching;
 						speed = 1;
 						Vector3 velocity = gameObject.transform.rotation * new Vector3(0, 0, -1 * speed);
 						gameObject.transform.position += velocity * Time.deltaTime;
@@ -79,7 +79,7 @@ public class BotMoving : MonoBehaviour
 				case 3:
 					{
 
-						movePuttern = MovePuttern.GoAway;
+						movePattern = MovePattern.GoAway;
 						speed = 1.0f;
 						Vector3 velocity = gameObject.transform.rotation * new Vector3(0, 0, speed);
 						gameObject.transform.position += velocity * Time.deltaTime;
@@ -112,7 +112,7 @@ public class BotMoving : MonoBehaviour
 			{
 				case 0:
 					{
-						movePuttern = MovePuttern.AntiClockwise;//行動パターン記憶
+						movePattern = MovePattern.AntiClockwise;//行動パターン記憶
 						float speed = 5;
 						Vector3 velocity = gameObject.transform.rotation * new Vector3(speed, 0, 0);
 						gameObject.transform.position += velocity * Time.deltaTime;
@@ -120,7 +120,7 @@ public class BotMoving : MonoBehaviour
 					}
 				case 1:
 					{
-						movePuttern = MovePuttern.Clockwise;
+						movePattern = MovePattern.Clockwise;
 						float speed = 5;
 						Vector3 velocity = gameObject.transform.rotation * new Vector3(-1 * speed, 0, 0);
 						gameObject.transform.position += velocity * Time.deltaTime;
@@ -130,7 +130,7 @@ public class BotMoving : MonoBehaviour
 
 				case 2:
 					{
-						movePuttern = MovePuttern.Approaching;
+						movePattern = MovePattern.Approaching;
 						float speed = 1;
 						Vector3 velocity = gameObject.transform.rotation * new Vector3(0, 0, -1 * speed);
 						gameObject.transform.position += velocity * Time.deltaTime;
@@ -138,7 +138,7 @@ public class BotMoving : MonoBehaviour
 					}
 				case 3:
 					{
-						movePuttern = MovePuttern.GoAway;
+						movePattern = MovePattern.GoAway;
 						float speed = 1;
 						Vector3 velocity = gameObject.transform.rotation * new Vector3(0, 0, speed);
 						gameObject.transform.position += velocity * Time.deltaTime;
@@ -161,18 +161,18 @@ public class BotMoving : MonoBehaviour
 		//Debug.Log("衝突判定検出");
 		if (collision.gameObject.tag != "Bullet")
 		{
-			switch (movePuttern)
+			switch (movePattern)
 			{
-				case MovePuttern.AntiClockwise:
+				case MovePattern.AntiClockwise:
 					collideMoving = 1;
 					break;
-				case MovePuttern.Clockwise:
+				case MovePattern.Clockwise:
 					collideMoving = 0;
 					break;
-				case MovePuttern.Approaching:
+				case MovePattern.Approaching:
 					collideMoving = 3;
 					break;
-				case MovePuttern.GoAway:
+				case MovePattern.GoAway:
 					collideMoving = 2;
 					break;
 				default:
