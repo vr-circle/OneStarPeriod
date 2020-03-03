@@ -8,7 +8,21 @@ namespace Character
 {
 	public class EnemyController : MonoBehaviour
 	{
-		//Enemyの出現を制御する予定？
+		//[SerializeField]
+		//private GameObject enemy;//Listで一括管理の可能性があります
+		
+		
+		
+		//[SerializeField]
+		//private GameObject appearanceEffect;
+
+
+
+
+		//private void InstanceEnemy()
+		//{
+
+		//}
 	}
 
 }

@@ -24,6 +24,7 @@ namespace Weapon
 
 			if (iDamageable != null)
 			{
+				Debug.Log("damage!");
 				iDamageable.ApplyDamage(damage);
 			}
 

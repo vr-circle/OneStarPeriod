@@ -32,6 +32,9 @@ namespace Character
 		{
 			private GameObject targetObject;
 
+			private MovePattern nowMovePattern;
+
+
 
 			
 			private void Update()
@@ -63,7 +66,18 @@ namespace Character
 			{
 
 			}
+			private void MoveAntiClockwise()
+			{
 
+			}
+			private void MoveApproaching()
+			{
+
+			}
+			private void MoveLeave()
+			{
+
+			}
 
 
 
