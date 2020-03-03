@@ -2,13 +2,33 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-
-
-namespace Character
+namespace OneStarPeriod
 {
-	public class EnemyController : MonoBehaviour
-	{
-		//Enemyの出現を制御する予定？
-	}
 
+
+	namespace Character
+	{
+		namespace Enemy
+		{
+			public class EnemyController : MonoBehaviour
+			{
+				//[SerializeField]
+				//private GameObject enemy;//Listで一括管理の可能性があります
+
+
+
+				//[SerializeField]
+				//private GameObject appearanceEffect;
+
+
+
+
+				//private void InstanceEnemy()
+				//{
+
+				//}
+			}
+
+		}
+	}
 }

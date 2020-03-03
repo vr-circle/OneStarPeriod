@@ -2,23 +2,53 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BotLooking : MonoBehaviour
+namespace OneStarPeriod
 {
-	[SerializeField] GameObject Bot;
-	[SerializeField] GameObject Target;
-	
-
-
-	void Update()
+	namespace Character
 	{
-		//BotRigid.transform.LookAt(Target.transform);
+		namespace Bot
+		{
 
-		float speed = 0.1f;
+			public class BotLooking : MonoBehaviour
+			{
+				private GameObject targetObject;
+				private BotMoving botMoving;
 
-		Vector3 relativePos = Target.transform.position - this.transform.position;
+				private void Start()
+				{
+					botMoving = GetComponent<BotMoving>();
+				}
 
-		Quaternion rotation = Quaternion.LookRotation(relativePos);
 
-		transform.rotation = Quaternion.Slerp(this.transform.rotation, rotation, speed);
+				void Update()
+				{
+					if (targetObject == null)
+					{
+						return;
+					}
+					float speed = 0.1f;
+
+					Vector3 relativePosition = targetObject.transform.position - this.transform.position;
+
+
+					Quaternion rotation = Quaternion.LookRotation(relativePosition);
+
+
+					transform.rotation = Quaternion.Slerp(this.transform.rotation, rotation, speed);
+				}
+
+
+
+				private void OnTriggerEnter(Collider other)
+				{
+					if (other.tag == "Player")
+					{
+						targetObject = other.gameObject;
+						botMoving.UpdateTarget(targetObject);
+						Debug.Log("detection");
+					}
+				}
+			}
+		}
 	}
 }

@@ -3,16 +3,15 @@ using System.Collections.Generic;
 using UnityEngine;
 
 
-namespace Character
+namespace OneStarPeriod
 {
-	interface IcanLockedOn
+	namespace Character
 	{
-		void LockedOn();
-	}
 
-	interface IDamageable
-	{
-		void ApplyDamage(float damage);
-	}
+		interface IDamageable
+		{
+			void ApplyDamage(float damage);
+		}
 
+	}
 }

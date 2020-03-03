@@ -3,79 +3,81 @@ using System.Collections.Generic;
 using UnityEngine;
 
 
-
-namespace Weapon
+namespace OneStarPeriod
 {
-	public class GunController : MonoBehaviour
+	namespace Weapon
 	{
-		[SerializeField]
-		private GameObject bullet;
-
-		private float bulletSpeed = 20.0f;
-
-		private int bulletNum = 100000;
-
-		private float positionMargin = 1.0f;
-
-
-
-		private bool isShooted = false;
-		private float timeInterval = 0.1f;
-		private float elapsedTime = 0.0f;
-
-		public Rect BulletNumDispPos = new Rect(0, 0, 100, 50);  // 場所は後で決める
-
-
-		private void Update()
+		public class GunController : MonoBehaviour
 		{
-			if (isShooted)
+			[SerializeField]
+			private GameObject bullet;
+
+			private float bulletSpeed = 20.0f;
+
+			private int bulletNum = 100000;
+
+			private float positionMargin = 1.0f;
+
+
+
+			private bool isShooted = false;
+			private float timeInterval = 0.1f;
+			private float elapsedTime = 0.0f;
+
+			public Rect BulletNumDispPos = new Rect(0, 0, 100, 50);  // 場所は後で決める
+
+
+			private void Update()
 			{
-				elapsedTime += Time.deltaTime;
-
-
-				if (elapsedTime > timeInterval)
+				if (isShooted)
 				{
-					isShooted = false;
+					elapsedTime += Time.deltaTime;
 
-					elapsedTime = 0.0f;
 
+					if (elapsedTime > timeInterval)
+					{
+						isShooted = false;
+
+						elapsedTime = 0.0f;
+
+					}
 				}
 			}
-		}
 
 
-		public void Shoot()
-		{
-			if (!isShooted)
+			public void Shoot()
 			{
-
-				if (bulletNum > 0)
+				if (!isShooted)
 				{
 
-					isShooted = true;
+					if (bulletNum > 0)
+					{
+
+						isShooted = true;
 
 
-					Vector3 startPosition = this.transform.position;
+						Vector3 startPosition = this.transform.position;
 
-					startPosition += this.transform.forward * positionMargin;
+						startPosition += this.transform.forward * positionMargin;
 
-					GameObject bulletTmp = Instantiate(bullet, startPosition, this.transform.rotation);
+						GameObject bulletTmp = Instantiate(bullet, startPosition, this.transform.rotation);
 
-					bulletTmp.GetComponent<Rigidbody>().velocity = this.transform.forward * bulletSpeed;
+						bulletTmp.GetComponent<Rigidbody>().velocity = this.transform.forward * bulletSpeed;
 
-					bulletNum--;
-				}
-				else
-				{
-					//弾切れ
+						bulletNum--;
+					}
+					else
+					{
+						//弾切れ
+					}
 				}
 			}
-		}
 
-		public void OnGUI()
-		{
-			GUI.Label(BulletNumDispPos, bulletNum.ToString());
-		}
+			public void OnGUI()
+			{
+				GUI.Label(BulletNumDispPos, bulletNum.ToString());
+			}
 
+		}
 	}
 }

@@ -2,33 +2,38 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace Weapon
+
+namespace OneStarPeriod
 {
-	public class Bullet : MonoBehaviour
+	namespace Weapon
 	{
-
-		private float damage = 0.5f;
-
-
-
-		private void Start()
+		public class Bullet : MonoBehaviour
 		{
-			Destroy(this.gameObject, 3.0f);
-		}
+
+			private float damage = 0.5f;
 
 
 
-		private void OnCollisionEnter(Collision other)
-		{
-			Character.IDamageable iDamageable = other.gameObject.GetComponent<Character.IDamageable>();
-
-			if (iDamageable != null)
+			private void Start()
 			{
-				iDamageable.ApplyDamage(damage);
+				Destroy(this.gameObject, 3.0f);
 			}
 
 
-			Destroy(this.gameObject);
+
+			private void OnCollisionEnter(Collision other)
+			{
+				Character.IDamageable iDamageable = other.gameObject.GetComponent<Character.IDamageable>();
+
+				if (iDamageable != null)
+				{
+					Debug.Log("damage!");
+					iDamageable.ApplyDamage(damage);
+				}
+
+
+				Destroy(this.gameObject);
+			}
 		}
 	}
 }
