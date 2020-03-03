@@ -41,6 +41,7 @@ namespace OneStarPeriod
 					{
 						Debug.Log(buttonObject.name);
 						//各シーンの読み込み処理
+						SceneManager.LoadScene("PlayView");
 					});
 
 					Text t = button.transform.FindChild("Text").gameObject.GetComponent<Text>();
