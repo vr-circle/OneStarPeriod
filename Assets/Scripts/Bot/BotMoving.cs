@@ -7,8 +7,6 @@ public class BotMoving : MonoBehaviour
     [SerializeField] 
     private GameObject Bot;
 
-    private Rigidbody BotRigid;
-
     [SerializeField] 
     private GameObject Target;
 
@@ -18,7 +16,7 @@ public class BotMoving : MonoBehaviour
 
     private float Distance;
 
-    private int MovingPuttern;
+    private int MovingPattern;
 
     private float CollideCounting = 0;
 
@@ -47,7 +45,7 @@ public class BotMoving : MonoBehaviour
             
                 if (RandomFigure == 0)//反時計回りにウゴく
                 {
-                    MovingPuttern = 0;//行動パターン記憶
+                    MovingPattern = 0;//行動パターン記憶
                     TimeCounting += Time.deltaTime;
                     float speed = 5;
                     Vector3 velocity = gameObject.transform.rotation * new Vector3(speed, 0, 0);
@@ -55,7 +53,7 @@ public class BotMoving : MonoBehaviour
                 }
                 if (RandomFigure == 1)//時計回りに動く
                 {
-                    MovingPuttern = 1;//行動パターン記憶
+                    MovingPattern = 1;//行動パターン記憶
                     TimeCounting += Time.deltaTime;
                     float speed = 5;
                     Vector3 velocity = gameObject.transform.rotation * new Vector3(-1 * speed, 0, 0);
@@ -63,7 +61,7 @@ public class BotMoving : MonoBehaviour
                 }
                 if (RandomFigure == 2)//近づく
                 {
-                    MovingPuttern = 2;//行動パターン記憶
+                    MovingPattern = 2;//行動パターン記憶
                     TimeCounting += Time.deltaTime;
                     float speed = 1;
                     Vector3 velocity = gameObject.transform.rotation * new Vector3(0, 0, -1 * speed);
@@ -71,7 +69,7 @@ public class BotMoving : MonoBehaviour
                 }
                 if (RandomFigure == 3)//遠ざかる
                 {
-                    MovingPuttern = 3;//行動パターン記憶
+                    MovingPattern = 3;//行動パターン記憶
                     TimeCounting += Time.deltaTime;
                     float speed = 1;
                     Vector3 velocity = gameObject.transform.rotation * new Vector3(0, 0, speed);
@@ -89,7 +87,7 @@ public class BotMoving : MonoBehaviour
             CollideCounting += Time.deltaTime;
             if(CollideMoving==0)
             {
-                MovingPuttern = 0;//行動パターン記憶
+                MovingPattern = 0;//行動パターン記憶
                 TimeCounting += Time.deltaTime;
                 float speed = 5;
                 Vector3 velocity = gameObject.transform.rotation * new Vector3(speed, 0, 0);
@@ -97,7 +95,7 @@ public class BotMoving : MonoBehaviour
             }
             if (CollideMoving == 1)
             {
-                MovingPuttern = 1;//行動パターン記憶
+                MovingPattern = 1;//行動パターン記憶
                 TimeCounting += Time.deltaTime;
                 float speed = 5;
                 Vector3 velocity = gameObject.transform.rotation * new Vector3(-1 * speed, 0, 0);
@@ -105,7 +103,7 @@ public class BotMoving : MonoBehaviour
             }
             if (CollideMoving == 2)
             {
-                MovingPuttern = 2;//行動パターン記憶
+                MovingPattern = 2;//行動パターン記憶
                 TimeCounting += Time.deltaTime;
                 float speed = 1;
                 Vector3 velocity = gameObject.transform.rotation * new Vector3(0, 0, -1 * speed);
@@ -113,7 +111,7 @@ public class BotMoving : MonoBehaviour
             }
             if (CollideMoving == 3)
             {
-                MovingPuttern = 3;//行動パターン記憶
+                MovingPattern = 3;//行動パターン記憶
                 TimeCounting += Time.deltaTime;
                 float speed = 1;
                 Vector3 velocity = gameObject.transform.rotation * new Vector3(0, 0, speed);
@@ -134,19 +132,19 @@ public class BotMoving : MonoBehaviour
         Debug.Log("衝突判定検出");
        if(collision.gameObject.tag!="Bullet")
         {
-            if (MovingPuttern == 1)
+            if (MovingPattern == 1)
             {
                 CollideMoving = 0;
             }
-            if (MovingPuttern == 0)
+            if (MovingPattern == 0)
             {
                 CollideMoving = 1;
             }
-            if (MovingPuttern == 3)
+            if (MovingPattern == 3)
             {
                 CollideMoving = 2;
             }
-            if (MovingPuttern == 2)
+            if (MovingPattern == 2)
             {
                 CollideMoving = 3;
             }

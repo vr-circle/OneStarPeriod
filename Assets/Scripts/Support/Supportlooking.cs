@@ -8,14 +8,14 @@ public class Supportlooking : MonoBehaviour
     private GameObject NearEnemy;
     private float searchTime;
 
-    // Start is called before the first frame update
+ 
     void Start()
     {
         //最も近かったオブジェクトを取得
-        NearEnemy = serchTag(gameObject, "Enemy");
+        NearEnemy = FindNearEnemy();
     }
 
-    // Update is called once per frame
+
     void Update()
     {
 
@@ -25,7 +25,7 @@ public class Supportlooking : MonoBehaviour
         if (searchTime >= 1.0f)
         {
             //最も近かったオブジェクトを取得
-            NearEnemy = serchTag(gameObject, "Enemy");
+            NearEnemy = FindNearEnemy();
 
             //経過時間を初期化
             searchTime = 0;
@@ -46,7 +46,6 @@ public class Supportlooking : MonoBehaviour
     {
         float tmpDis = 0;           //距離用一時変数
         float nearDis = 0;          //最も近いオブジェクトの距離
-        //string nearObjName = "";    //オブジェクト名称
         GameObject targetObj = null; //オブジェクト
 
         //タグ指定されたオブジェクトを配列で取得する
@@ -60,14 +59,16 @@ public class Supportlooking : MonoBehaviour
             if (nearDis == 0 || nearDis > tmpDis)
             {
                 nearDis = tmpDis;
-                //nearObjName = obs.name;
                 targetObj = obs;
             }
 
         }
         //最も近かったオブジェクトを返す
-        //return GameObject.Find(nearObjName);
         return targetObj;
-        // Update is called once per frame
+    }
+
+    public GameObject FindNearEnemy()
+    {
+        return serchTag(gameObject,"Enemy");
     }
 }
