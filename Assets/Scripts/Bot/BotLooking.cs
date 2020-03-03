@@ -4,18 +4,21 @@ using UnityEngine;
 
 public class BotLooking : MonoBehaviour
 {
-    [SerializeField] GameObject Target;
-    
-    void Update()
-    {
+	[SerializeField] GameObject Bot;
+	[SerializeField] GameObject Target;
+	
 
-        float speed = 0.1f;
 
-        Vector3 relativePos = Target.transform.position - this.transform.position;
+	void Update()
+	{
+		//BotRigid.transform.LookAt(Target.transform);
 
-        Quaternion rotation = Quaternion.LookRotation(relativePos);
+		float speed = 0.1f;
 
-        transform.rotation = Quaternion.Slerp(this.transform.rotation, rotation, speed);
-    }
+		Vector3 relativePos = Target.transform.position - this.transform.position;
 
+		Quaternion rotation = Quaternion.LookRotation(relativePos);
+
+		transform.rotation = Quaternion.Slerp(this.transform.rotation, rotation, speed);
+	}
 }
