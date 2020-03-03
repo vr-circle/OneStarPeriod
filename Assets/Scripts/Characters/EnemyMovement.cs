@@ -65,7 +65,19 @@ namespace OneStarPeriod
 							nowPattern = RandomMovementPattern();
 						}
 						transform.LookAt(targetObject.transform.position);
+						
 						float nowDistance = Vector3.Distance(this.transform.position, targetObject.transform.position);
+						if (nowDistance < minDistance)
+						{
+							nowPattern = MovementPattern.Leave;
+							movementTimer = 0;
+						}
+						else if (nowDistance > maxDistance)
+						{
+							nowPattern = MovementPattern.Approaching;
+							movementTimer = 0;
+						}
+						
 						switch (nowPattern)
 						{
 							case MovementPattern.Idling:

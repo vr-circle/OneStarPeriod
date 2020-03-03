@@ -21,7 +21,7 @@ namespace OneStarPeriod
 
 
 				private bool isShooted = false;
-				private float timeInterval = 0.1f;
+				private float timeInterval = 0.5f;
 				private float elapsedTime = 0.0f;
 
 				private void Update()
