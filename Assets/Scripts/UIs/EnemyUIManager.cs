@@ -2,14 +2,16 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-
-namespace Character
+namespace OneStarPeriod
 {
-	public class EnemyUIManager : MonoBehaviour
+	namespace Character
 	{
-		private void LateUpdate()
-		{
-			transform.rotation = Camera.main.transform.rotation;
-		}
+		//public class EnemyUIManager : MonoBehaviour
+		//{
+		//	private void LateUpdate()
+		//	{
+		//		transform.rotation = Camera.main.transform.rotation;
+		//	}
+		//}
 	}
 }

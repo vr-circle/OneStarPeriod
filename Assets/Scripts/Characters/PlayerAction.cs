@@ -2,49 +2,52 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-
-namespace Character
+namespace OneStarPeriod
 {
-	namespace Player
+	namespace Character
 	{
-		public class PlayerAction : MonoBehaviour//, IDamageable
+		namespace Player
 		{
-
-			[SerializeField]
-			private GameObject gun;
-			[SerializeField]
-			private Weapon.GunController gunController;
-
-			void Start()
+			using Weapon;
+			public class PlayerAction : MonoBehaviour//, IDamageable
 			{
-				gunController = gun.GetComponent<Weapon.GunController>();
-			}
 
-			void Update()
-			{
-				Action();
-			}
+				[SerializeField]
+				private GameObject gun;
+				[SerializeField]
+				private GunController gunController;
 
-			private void Action()
-			{
-				if (Input.GetMouseButton(0))//left
+				void Start()
 				{
-					gunController.Shoot();
+					gunController = gun.GetComponent<GunController>();
 				}
 
-				if (Input.GetMouseButton(1))//right
+				void Update()
 				{
-					LockOn();
+					Action();
 				}
+
+				private void Action()
+				{
+					if (Input.GetMouseButton(0))//left
+					{
+						gunController.Shoot();
+					}
+
+					if (Input.GetMouseButton(1))//right
+					{
+						LockOn();
+					}
+				}
+
+
+				private void LockOn()
+				{
+					Debug.Log("lock on");
+				}
+
+
 			}
-
-
-			private void LockOn()
-			{
-				Debug.Log("lock on");
-			}
-
-
 		}
 	}
 }

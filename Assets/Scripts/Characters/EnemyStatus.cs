@@ -3,49 +3,53 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-
-namespace Character
+namespace OneStarPeriod
 {
-	namespace Enemy
+	namespace Character
 	{
-		public class EnemyStatus : MonoBehaviour
+		namespace Enemy
 		{
-			private float hp;
-			private float maxHp = 30.0f;
-
-			private Slider slider;
-
-			private void Start()
+			public class EnemyStatus : MonoBehaviour,IDamageable
 			{
-				hp = maxHp;
+				private float hp;
+				private float maxHp = 30.0f;
 
-				slider = this.gameObject.transform.Find("HPBar/Slider").gameObject.GetComponent<Slider>();
+				private GameObject hpBar;
+				private Slider slider;
 
-			}
-
-			private void Update()
-			{
-				slider.value = hp / maxHp;
-				if (hp <= 0)
+				private void Start()
 				{
-					Destroy(this.gameObject);
+					hp = maxHp;
+					hpBar = this.gameObject.transform.Find("HPBar").gameObject;
+					slider = hpBar.transform.Find("Slider").gameObject.GetComponent<Slider>();
 				}
 
-			}
+				private void Update()
+				{
+					slider.value = hp / maxHp;
+					if (hp <= 0)
+					{
+						Destroy(this.gameObject);
+					}
+				}
 
+				private void LateUpdate()
+				{
+					//UIが常にカメラの向きに向くようにする	
+					hpBar.transform.rotation = Camera.main.transform.rotation;
+				}
 
+				public void ApplyDamage(float damage)
+				{
 
-			public void ApplyDamage(float damage)
-			{
+					hp -= damage;
 
-				hp -= damage;
+				}
 
-			}
-
-			public void LockedOn()
-			{
-				//UIを更新する,PlayerControllerから実行させる
-				Debug.Log("locked on");
+				public void LockedOn()
+				{
+					//これいらない気がする
+				}
 			}
 		}
 	}

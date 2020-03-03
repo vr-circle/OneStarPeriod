@@ -3,48 +3,50 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-
-namespace Character
+namespace OneStarPeriod
 {
-	namespace Player
+	namespace Character
 	{
-		public class PlayerStatus : MonoBehaviour, IDamageable
+		namespace Player
 		{
-			private float hp;
-			private float maxHp = 50;
-			private float mp;
-			private float maxMp = 50;
-
-
-			[SerializeField]
-			private GameObject hpBar;
-			[SerializeField]
-			private GameObject mpBar;
-
-			private Slider hpSlider;
-			private Slider mpSlider;
-
-
-			void Start()
+			public class PlayerStatus : MonoBehaviour, IDamageable
 			{
-				hp = maxHp;
-				mp = maxMp;
+				private float hp;
+				private float maxHp = 50;
+				private float mp;
+				private float maxMp = 50;
 
-				hpSlider = hpBar.GetComponent<Slider>();
-				mpSlider = mpBar.GetComponent<Slider>();
+
+				[SerializeField]
+				private GameObject hpBar;
+				[SerializeField]
+				private GameObject mpBar;
+
+				private Slider hpSlider;
+				private Slider mpSlider;
+
+
+				void Start()
+				{
+					hp = maxHp;
+					mp = maxMp;
+
+					hpSlider = hpBar.GetComponent<Slider>();
+					mpSlider = mpBar.GetComponent<Slider>();
+				}
+
+				void Update()
+				{
+					hpSlider.value = hp / maxHp;
+					mpSlider.value = mp / maxMp;
+				}
+
+				public void ApplyDamage(float damage)
+				{
+					this.hp -= damage;
+				}
+
 			}
-
-			void Update()
-			{
-				hpSlider.value = hp / maxHp;
-				mpSlider.value = mp / maxMp;
-			}
-
-			public void ApplyDamage(float damage)
-			{
-				this.hp -= damage;
-			}
-
 		}
 	}
 }
