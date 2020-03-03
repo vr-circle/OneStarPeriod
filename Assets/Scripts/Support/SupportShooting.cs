@@ -2,10 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BotShooting : MonoBehaviour
+public class SupportShooting : MonoBehaviour
 {
 	[SerializeField]
-	private GameObject Botbullet;
+	private GameObject Supportbullet;
 
 	private float bulletSpeed = 20.0f;
 
@@ -13,31 +13,38 @@ public class BotShooting : MonoBehaviour
 
 	private float positionMargin = 1.0f;
 
-
+	private GameObject NearEnemy;
 
 	private bool isShooted = false;
+
 	private float timeInterval = 1.0f;
+
 	private float elapsedTime = 0.0f;
+
 
 	//public Rect BulletNumDispPos = new Rect(0, 0, 100, 50);  // 場所は後で決める
 
 
 	private void Update()
 	{
-		if (isShooted)
+		NearEnemy = this.GetComponent<Supportlooking>().FindNearEnemy();
+		if (NearEnemy != null)
 		{
-			elapsedTime += Time.deltaTime;
-
-
-			if (elapsedTime > timeInterval)
+			if (isShooted)
 			{
-				isShooted = false;
+				elapsedTime += Time.deltaTime;
 
-				elapsedTime = 0.0f;
 
+				if (elapsedTime > timeInterval)
+				{
+					isShooted = false;
+
+					elapsedTime = 0.0f;
+
+				}
 			}
+			Shoot();
 		}
-		Shoot();
 	}
 
 
@@ -56,7 +63,7 @@ public class BotShooting : MonoBehaviour
 
 				startPosition += this.transform.forward * positionMargin;
 
-				GameObject bulletTmp = Instantiate(Botbullet, startPosition, this.transform.rotation);
+				GameObject bulletTmp = Instantiate(Supportbullet, startPosition, this.transform.rotation);
 
 				bulletTmp.GetComponent<Rigidbody>().velocity = this.transform.forward * bulletSpeed;
 
