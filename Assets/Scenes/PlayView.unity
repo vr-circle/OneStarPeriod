@@ -685,7 +685,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe6014a2f20dfc64195b7d1d0ef9575c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  targetObject: {fileID: 877929997}
+  Bot: {fileID: 633714423}
+  Target: {fileID: 877929997}
 --- !u!114 &633714431
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -740,8 +741,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 706082911}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.13, y: 0, z: 0.47000003}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0.47}
   m_LocalScale: {x: 0.3, y: 0.3, z: 0.3}
   m_Children: []
   m_Father: {fileID: 633714428}
@@ -928,7 +929,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 84
+  m_Constraints: 0
   m_CollisionDetection: 0
 --- !u!114 &751902654
 MonoBehaviour:
@@ -942,8 +943,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2b1017fa5fba90845a2bbb82ac7b3702, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 877929997}
-  supportSpeed: 1
+  Support: {fileID: 751902647}
+  Player: {fileID: 877929997}
+  SupportSpeed: 1
 --- !u!114 &751902655
 MonoBehaviour:
   m_ObjectHideFlags: 0

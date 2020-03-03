@@ -15,5 +15,8 @@ namespace Character
 		{
 			hp -= damage;
 		}
+
+
+
 	}
 }
