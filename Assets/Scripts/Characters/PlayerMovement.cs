@@ -60,12 +60,9 @@ namespace OneStarPeriod
 				{
 					Vector3 yVelocityTmp = playerRigidbody.velocity;
 
-					playerRigidbody.velocity
-						= new Vector3(
-							inputHorizontal * moveSpeed,
-							playerRigidbody.velocity.y,
-							inputVertical * moveSpeed
-						);
+					Vector3 inputDirection = Vector3.Normalize(new Vector3(inputHorizontal, 0, inputVertical));
+
+					playerRigidbody.velocity = inputDirection * moveSpeed + new Vector3(0, playerRigidbody.velocity.y, 0);
 
 					UpdateRotation();
 				}
