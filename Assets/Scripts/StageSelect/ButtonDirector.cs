@@ -25,6 +25,10 @@ namespace OneStarPeriod
 
 			void Start()
 			{
+				FadeManager.FadeIn();
+
+
+
 				for (int i = 1; i < stages.Count + 1; i++)
 				{
 					float xMargin = 100;
@@ -37,16 +41,18 @@ namespace OneStarPeriod
 
 					buttonObject.name = i.ToString();
 					Button button = buttonObject.GetComponent<Button>();
+
+					Text t = button.transform.FindChild("Text").gameObject.GetComponent<Text>();
+					t.text = "Stage" + i.ToString();
+
 					button.onClick.AddListener(() =>
 					{
 						Debug.Log(buttonObject.name);
 						//各シーンの読み込み処理
-						SceneManager.LoadScene("PlayView");
+						FadeManager.FadeOut(t.text);
 					});
 
-					Text t = button.transform.FindChild("Text").gameObject.GetComponent<Text>();
 
-					t.text = "Stage" + i.ToString();
 
 				}
 
