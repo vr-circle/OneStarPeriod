@@ -35,25 +35,28 @@ namespace OneStarPeriod
 
 					if (Input.GetMouseButtonDown(1))//right click
 					{
-						Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+						//lock on 機能について要協議
 
-						RaycastHit hitObject;
 
-						if (Physics.Raycast(ray, out hitObject, 20.0f))
-						{
-							//Debug.Log(hitObject.transform.position);
-							if (hitObject.collider.tag == "Enemy")//fix has interface(whether possible to lock on) <-- tag=="Enemy"
-							{
-								isLockingOn = true;
-								targetObject = hitObject.collider.gameObject;
+						//Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
 
-							}
-							else
-							{
-								isLockingOn = false;
-							}
+						//RaycastHit hitObject;
 
-						}
+						//if (Physics.Raycast(ray, out hitObject, 20.0f))
+						//{
+						//	//Debug.Log(hitObject.transform.position);
+						//	if (hitObject.collider.tag == "Enemy")//fix has interface(whether possible to lock on) <-- tag=="Enemy"
+						//	{
+						//		isLockingOn = true;
+						//		targetObject = hitObject.collider.gameObject;
+
+						//	}
+						//	else
+						//	{
+						//		isLockingOn = false;
+						//	}
+
+						//}
 					}
 				}
 				void FixedUpdate()

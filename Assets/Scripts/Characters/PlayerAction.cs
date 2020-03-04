@@ -11,7 +11,6 @@ namespace OneStarPeriod
 			using Weapon;
 			public class PlayerAction : MonoBehaviour//, IDamageable
 			{
-
 				//[SerializeField]
 				//private GameObject gun;
 				[SerializeField]
@@ -31,7 +30,7 @@ namespace OneStarPeriod
 				{
 					if (Input.GetMouseButton(0))//left
 					{
-						bulletController.Shoot();
+						bulletController.CommonShoot();
 					}
 
 					if (Input.GetMouseButton(1))//right
@@ -41,7 +40,7 @@ namespace OneStarPeriod
 
 					if (Input.GetKey(KeyCode.F))
 					{
-
+						bulletController.ShootStrongBullet();
 					}
 
 				}

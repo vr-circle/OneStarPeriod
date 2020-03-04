@@ -9,7 +9,7 @@ namespace OneStarPeriod
 	{
 		public class Bullet : MonoBehaviour
 		{
-
+			[SerializeField]
 			private float damage = 0.5f;
 
 
@@ -21,8 +21,13 @@ namespace OneStarPeriod
 
 
 
-			private void OnCollisionEnter(Collision other)
+			private void OnTriggerEnter(Collider other)
 			{
+				if(other.tag == "Bullet")
+				{
+					return;
+				}
+
 				Character.IDamageable iDamageable = other.gameObject.GetComponent<Character.IDamageable>();
 
 				if (iDamageable != null)
