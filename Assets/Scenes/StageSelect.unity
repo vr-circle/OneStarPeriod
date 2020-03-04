@@ -205,7 +205,7 @@ GameObject:
   - component: {fileID: 762551954}
   - component: {fileID: 762551953}
   m_Layer: 0
-  m_Name: ButtonDirector
+  m_Name: SelectSceneManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

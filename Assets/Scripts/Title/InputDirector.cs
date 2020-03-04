@@ -13,7 +13,7 @@ namespace OneStarPeriod
 			{
 				if ((Input.GetKeyDown(KeyCode.KeypadEnter)) || (Input.GetMouseButtonDown(0)))
 				{
-					SceneManager.LoadScene("StageSelect");
+					FadeManager.FadeOut("StageSelect");
 				}
 			}
 		}
