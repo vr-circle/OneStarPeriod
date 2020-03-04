@@ -12,14 +12,14 @@ namespace OneStarPeriod
 			public class PlayerAction : MonoBehaviour//, IDamageable
 			{
 
+				//[SerializeField]
+				//private GameObject gun;
 				[SerializeField]
-				private GameObject gun;
-				[SerializeField]
-				private GunController gunController;
+				private BulletController bulletController;
 
 				void Start()
 				{
-					gunController = gun.GetComponent<GunController>();
+					bulletController = GetComponent<BulletController>();
 				}
 
 				void Update()
@@ -31,13 +31,19 @@ namespace OneStarPeriod
 				{
 					if (Input.GetMouseButton(0))//left
 					{
-						gunController.Shoot();
+						bulletController.Shoot();
 					}
 
 					if (Input.GetMouseButton(1))//right
 					{
 						LockOn();
 					}
+
+					if (Input.GetKey(KeyCode.F))
+					{
+
+					}
+
 				}
 
 

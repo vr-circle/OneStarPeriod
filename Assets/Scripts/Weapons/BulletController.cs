@@ -7,7 +7,7 @@ namespace OneStarPeriod
 {
 	namespace Weapon
 	{
-		public class GunController : MonoBehaviour
+		public class BulletController : MonoBehaviour
 		{
 			[SerializeField]
 			private GameObject bullet;
@@ -44,38 +44,23 @@ namespace OneStarPeriod
 				}
 			}
 
+			public void ShootStrongBullet()
+			{
+
+			}
+
 
 			public void Shoot()
 			{
 				if (!isShooted)
 				{
+					isShooted = true;
 
-					if (bulletNum > 0)
-					{
-
-						isShooted = true;
-
-
-						Vector3 startPosition = this.transform.position;
-
-						startPosition += this.transform.forward * positionMargin;
-
-						GameObject bulletTmp = Instantiate(bullet, startPosition, this.transform.rotation);
-
-						bulletTmp.GetComponent<Rigidbody>().velocity = this.transform.forward * bulletSpeed;
-
-						bulletNum--;
-					}
-					else
-					{
-						//弾切れ
-					}
+					Vector3 startPosition = this.transform.position;
+					startPosition += this.transform.forward * positionMargin;
+					GameObject bulletTmp = Instantiate(bullet, startPosition, this.transform.rotation);
+					bulletTmp.GetComponent<Rigidbody>().velocity = this.transform.forward * bulletSpeed;
 				}
-			}
-
-			public void OnGUI()
-			{
-				GUI.Label(BulletNumDispPos, bulletNum.ToString());
 			}
 
 		}
