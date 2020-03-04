@@ -9,7 +9,7 @@ namespace OneStarPeriod
 	{
 		namespace Enemy
 		{
-			public class EnemyStatus : MonoBehaviour,IDamageable
+			public class NPCStatus : MonoBehaviour,IDamageable
 			{
 				private float hp;
 				private float maxHp = 30.0f;
