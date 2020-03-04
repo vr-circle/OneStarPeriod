@@ -857,12 +857,12 @@ GameObject:
   - component: {fileID: 751902654}
   - component: {fileID: 751902655}
   m_Layer: 0
-  m_Name: Support
+  m_Name: Supporter
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &751902648
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -991,7 +991,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6ace750dd6c887e4381891b0355c12ad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  botBullet: {fileID: 0}
+  botBullet: {fileID: 7763392859987597357, guid: e993316cea393e047b488794eed8664b,
+    type: 3}
 --- !u!1001 &793134610
 PrefabInstance:
   m_ObjectHideFlags: 0
