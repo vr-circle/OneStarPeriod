@@ -634,5 +634,3 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fef6129a7dcd281428453160fcf72148, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  StageSelectScene:
-    m_Handle: 0
