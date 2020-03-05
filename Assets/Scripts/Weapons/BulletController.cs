@@ -26,7 +26,7 @@ namespace OneStarPeriod
 
 			private float positionMargin = 1.5f;
 
-			private float necessaryMp = 10.0f;
+			private float necessaryMp = 40.0f;
 
 			private bool isShooted = false;
 			private float timeInterval = 0.1f;
@@ -84,6 +84,9 @@ namespace OneStarPeriod
 				startPosition += this.transform.forward * positionMargin;
 				GameObject bulletTmp = Instantiate(bullet, startPosition, this.transform.rotation);
 				bulletTmp.GetComponent<Rigidbody>().velocity = this.transform.forward * bulletSpeed;
+
+				Destroy(bulletTmp,5.0f);
+
 			}
 
 
