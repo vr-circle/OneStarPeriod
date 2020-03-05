@@ -1068,6 +1068,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2d2b93daaaa638745b6887168ea2994e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  bodyDamage: 10
   bullet: {fileID: 7972890710456275085, guid: ea957a035af66f24c8312ca06c8be952, type: 3}
 --- !u!4 &568454152 stripped
 Transform:
@@ -1163,6 +1164,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2d2b93daaaa638745b6887168ea2994e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  bodyDamage: 10
   bullet: {fileID: 7763392859987597357, guid: e993316cea393e047b488794eed8664b, type: 3}
 --- !u!1 &677380350
 GameObject:
@@ -1536,6 +1538,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2d2b93daaaa638745b6887168ea2994e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  bodyDamage: 10
   bullet: {fileID: 7763392859987597357, guid: e993316cea393e047b488794eed8664b, type: 3}
 --- !u!114 &798842714
 MonoBehaviour:
@@ -1596,6 +1599,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2d2b93daaaa638745b6887168ea2994e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  bodyDamage: 10
   bullet: {fileID: 7763392859987597357, guid: e993316cea393e047b488794eed8664b, type: 3}
 --- !u!114 &808020643
 MonoBehaviour:
@@ -1697,6 +1701,10 @@ PrefabInstance:
     - target: {fileID: 100000, guid: 87fec79e86eb11842aa485190dec6d5f, type: 3}
       propertyPath: m_Name
       value: Turret
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 87fec79e86eb11842aa485190dec6d5f, type: 3}
+      propertyPath: m_TagString
+      value: Enemy
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 87fec79e86eb11842aa485190dec6d5f, type: 3}
       propertyPath: m_LocalPosition.x
@@ -2034,6 +2042,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2d2b93daaaa638745b6887168ea2994e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  bodyDamage: 10
   bullet: {fileID: 7972890710456275085, guid: ea957a035af66f24c8312ca06c8be952, type: 3}
 --- !u!114 &1077096033
 MonoBehaviour:
@@ -2526,6 +2535,10 @@ PrefabInstance:
     - target: {fileID: 100000, guid: 87fec79e86eb11842aa485190dec6d5f, type: 3}
       propertyPath: m_Name
       value: Turret (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 87fec79e86eb11842aa485190dec6d5f, type: 3}
+      propertyPath: m_TagString
+      value: Enemy
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 87fec79e86eb11842aa485190dec6d5f, type: 3}
       propertyPath: m_LocalPosition.x
@@ -3135,6 +3148,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 5237283163878735219, guid: 8d6fe735cbb9201409630a4a41af1115,
+        type: 3}
+      propertyPath: m_Name
+      value: MainCamera
+      objectReference: {fileID: 0}
     - target: {fileID: 5237283164240113965, guid: 8d6fe735cbb9201409630a4a41af1115,
         type: 3}
       propertyPath: m_Enabled
