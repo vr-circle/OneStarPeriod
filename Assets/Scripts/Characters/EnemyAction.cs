@@ -12,10 +12,14 @@ namespace OneStarPeriod
 			public class EnemyAction : MonoBehaviour
 			{
 				[SerializeField]
+				private float bodyDamage = 10.0f;
+
+
+				[SerializeField]
 				private GameObject bullet;
 
-				private float bulletSpeed = 20.0f;
 
+				private float bulletSpeed = 20.0f;
 				private float positionMargin = 1.0f;
 
 
@@ -42,6 +46,22 @@ namespace OneStarPeriod
 						Shoot();
 					}
 				}
+
+				private void OnCollisionEnter(Collision collision)
+				{
+					if(collision.gameObject.tag == "Enemy")
+					{
+						return;
+					}
+
+					IDamageable idamageable = collision.gameObject.GetComponent<IDamageable>();
+
+					if (idamageable != null)
+					{
+						idamageable.ApplyDamage(bodyDamage);
+					}
+				}
+
 
 
 				public void Shoot()
