@@ -58,7 +58,7 @@ namespace OneStarPeriod
 
 				public void ApplyDamage(float damage)
 				{
-					cameraController.Shake(0.1f, 0.05f);
+					//cameraController.Shake(0.1f, 0.05f);
 
 					this.hp -= damage;
 				}
