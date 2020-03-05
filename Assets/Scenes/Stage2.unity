@@ -1102,7 +1102,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 80
+  m_Constraints: 84
   m_CollisionDetection: 0
 --- !u!1 &633714423 stripped
 GameObject:
@@ -2087,7 +2087,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 80
+  m_Constraints: 84
   m_CollisionDetection: 0
 --- !u!4 &1077096039 stripped
 Transform:
@@ -2493,6 +2493,18 @@ PrefabInstance:
     - target: {fileID: 400000, guid: 664ce7383221f3746aaad6ac592374e8, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 664ce7383221f3746aaad6ac592374e8, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 664ce7383221f3746aaad6ac592374e8, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 664ce7383221f3746aaad6ac592374e8, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2300000, guid: 664ce7383221f3746aaad6ac592374e8, type: 3}
       propertyPath: m_Enabled
@@ -3032,7 +3044,7 @@ PrefabInstance:
     - target: {fileID: 5719624961708757969, guid: a27dbc525c933304ebe0e1d09dd11418,
         type: 3}
       propertyPath: m_Constraints
-      value: 80
+      value: 84
       objectReference: {fileID: 0}
     - target: {fileID: 5719624961708757970, guid: a27dbc525c933304ebe0e1d09dd11418,
         type: 3}
