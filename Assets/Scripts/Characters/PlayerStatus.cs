@@ -25,9 +25,15 @@ namespace OneStarPeriod
 				private Slider hpSlider;
 				private Slider mpSlider;
 
+				private GameObject mainCamera;
+				private CameraController cameraController;
 
 				void Start()
 				{
+					mainCamera = this.transform.Find("MainCamera").gameObject;
+					cameraController = mainCamera.GetComponent<CameraController>();
+
+
 					hp = maxHp;
 					mp = maxMp;
 
@@ -47,8 +53,13 @@ namespace OneStarPeriod
 					mp += mpRecoverySpeed;
 				}
 
+
+
+
 				public void ApplyDamage(float damage)
 				{
+					cameraController.Shake(0.1f, 0.05f);
+
 					this.hp -= damage;
 				}
 
@@ -60,6 +71,8 @@ namespace OneStarPeriod
 				{
 					this.mp -= mp;
 				}
+
+
 
 
 
