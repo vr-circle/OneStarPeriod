@@ -11,7 +11,7 @@ namespace OneStarPeriod
 		{
 			private void Update()
 			{
-				if ((Input.GetKeyDown(KeyCode.KeypadEnter)) || (Input.GetMouseButtonDown(0)))
+				if ((Input.GetKeyDown("return")) || (Input.GetMouseButtonDown(0)))
 				{
 					FadeManager.FadeOut("StageSelect");
 				}
