@@ -40,17 +40,26 @@ namespace OneStarPeriod
 
 				private void Update()
 				{
-					if (enemySum > 0 && nowEnemyNum < 2)
+					nowEnemyNum = this.transform.childCount;
+
+					if (enemySum > 0 && nowEnemyNum < 3)
 					{
 						SpawnEnemy();
 					}
+
+					if (nowEnemyNum == 0)
+					{
+						FadeManager.FadeOut("ResultScene");
+					}
+
+
 				}
 
 
 				private void SpawnEnemy()
 				{
-					Instantiate(enemys[Random.Range(0, enemys.Count)], spawnPosition[Random.Range(0, spawnPosition.Count)], Quaternion.identity);
-					this.nowEnemyNum++;
+					Instantiate(enemys[Random.Range(0, enemys.Count)], spawnPosition[Random.Range(0, spawnPosition.Count)], Quaternion.identity,this.transform);
+					enemySum--;
 				}
 
 
