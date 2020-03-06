@@ -20,7 +20,7 @@ namespace OneStarPeriod
 
 			private float bulletSpeed = 20.0f;
 			private float positionMargin = 1.5f;
-			private float necessaryMp = 40.0f;
+			private float necessaryMp = 20.0f;
 			private bool isShooted = false;
 			private bool isDecrease = false;
 

@@ -15,7 +15,7 @@ namespace OneStarPeriod
 				private float maxHp = 50.0f;
 				private float mp;
 				private float maxMp = 50.0f;
-				private float mpRecoverySpeed = 0.05f;
+				private float mpRecoverySpeed = 0.1f;
 
 				[SerializeField]
 				private GameObject hpBar;
@@ -46,6 +46,8 @@ namespace OneStarPeriod
 					if (hp <= 0.0f)
 					{
 						//GameOverSceneに遷移させる
+						FadeManager.FadeOut("ResultScene");
+
 					}
 
 					hpSlider.value = hp / maxHp;
