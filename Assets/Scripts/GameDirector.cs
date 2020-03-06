@@ -7,20 +7,35 @@ namespace OneStarPeriod
 {
 	public class GameDirector : MonoBehaviour
 	{
-		private uint score = 0;
+		private static uint score = 0;
 
-		private float time = 0.0f;
+		private static float time = 0.0f;
+
+		private static bool isPlaying;
 
 
 		private void Start()
 		{
 			score = 0;
 			time = 0.0f;
+			isPlaying = true;
 		}
 
 		private void FixedUpdate()
 		{
-			time += Time.deltaTime;
+			if (isPlaying)
+			{
+				time += Time.deltaTime;
+			}
+		}
+
+		static float GetScore()
+		{
+			return score;
+		}
+		static float GetTime()
+		{
+			return time;
 		}
 
 

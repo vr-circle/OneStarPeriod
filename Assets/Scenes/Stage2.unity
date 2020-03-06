@@ -752,6 +752,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemys: []
   spawnPosition: []
+  enemySum: 10
+  initEnemyNum: 3
 --- !u!4 &836376852
 Transform:
   m_ObjectHideFlags: 0
@@ -1527,7 +1529,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!114 &1999207696
 MonoBehaviour:
@@ -1571,7 +1573,12 @@ MonoBehaviour:
   enemys:
   - {fileID: 5677199690521735398, guid: 01e768c04cd757b46a326be142cc2b89, type: 3}
   - {fileID: 5975771084207058910, guid: a27dbc525c933304ebe0e1d09dd11418, type: 3}
-  spawnPosition: []
+  spawnPosition:
+  - {x: 0, y: 0, z: 0}
+  - {x: 0, y: 0, z: 0}
+  - {x: 0, y: 0, z: 0}
+  enemySum: 10
+  initEnemyNum: 3
 --- !u!1001 &2129644873222847506
 PrefabInstance:
   m_ObjectHideFlags: 0

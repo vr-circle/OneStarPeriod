@@ -38,6 +38,9 @@ namespace OneStarPeriod
 
 				private void Start()
 				{
+					targetObject = GameObject.FindGameObjectWithTag("Player");
+
+
 					foreach (MovementPattern pattern in Enum.GetValues(typeof(MovementPattern)))
 					{
 						patterns.Add(pattern);
