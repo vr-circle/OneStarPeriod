@@ -18,17 +18,13 @@ namespace OneStarPeriod
 			[SerializeField]
 			private GameObject strongBullet;
 
-
-
 			private float bulletSpeed = 20.0f;
-
 			private int bulletNum = 100000;
-
 			private float positionMargin = 1.5f;
-
 			private float necessaryMp = 40.0f;
-
 			private bool isShooted = false;
+			private bool isDecrease = false;
+
 			private float timeInterval = 0.1f;
 			private float elapsedTime = 0.0f;
 
@@ -55,6 +51,15 @@ namespace OneStarPeriod
 				}
 			}
 
+			private void LateUpdate()
+			{
+				if (isDecrease)
+				{
+					playerStatus.DecreaseMp(necessaryMp);
+					isDecrease = false;
+				}
+			}
+
 			public void ShootStrongBullet()
 			{
 				if (!isShooted)
@@ -62,8 +67,8 @@ namespace OneStarPeriod
 					isShooted = true;
 					if (this.playerStatus.GetMp() > necessaryMp)
 					{
-						playerStatus.DecreaseMp(necessaryMp);
 						Shoot(strongBullet);
+						isDecrease = true;
 					}
 				}
 			}
@@ -82,10 +87,14 @@ namespace OneStarPeriod
 			{
 				Vector3 startPosition = this.transform.position;
 				startPosition += this.transform.forward * positionMargin;
-				GameObject bulletTmp = Instantiate(bullet, startPosition, this.transform.rotation);
+
+				GameObject bulletTmp = Instantiate(bullet, startPosition,Quaternion.identity);
+
+				bulletTmp.transform.rotation = this.transform.rotation * Quaternion.Euler(-90, 0, 0);
+
 				bulletTmp.GetComponent<Rigidbody>().velocity = this.transform.forward * bulletSpeed;
 
-				Destroy(bulletTmp,5.0f);
+				Destroy(bulletTmp, 5.0f);
 
 			}
 

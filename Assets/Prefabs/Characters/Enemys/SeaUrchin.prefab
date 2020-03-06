@@ -396,7 +396,7 @@ Transform:
   m_GameObject: {fileID: 5975771084207058910}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 11.265329, y: 0.275, z: -13.562275}
-  m_LocalScale: {x: 80, y: 80, z: 80}
+  m_LocalScale: {x: 50, y: 50, z: 50}
   m_Children:
   - {fileID: 279362088}
   m_Father: {fileID: 0}
@@ -461,7 +461,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 94
+  m_Constraints: 84
   m_CollisionDetection: 0
 --- !u!135 &5719624961708757970
 SphereCollider:
@@ -475,7 +475,7 @@ SphereCollider:
   m_Enabled: 1
   serializedVersion: 2
   m_Radius: 0.01
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Center: {x: 0, y: 0.001, z: 0}
 --- !u!114 &5719624961708757965
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -501,6 +501,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   targetObject: {fileID: 0}
+  nowPattern: 2
 --- !u!114 &5719624961708757968
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -513,4 +514,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2d2b93daaaa638745b6887168ea2994e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bullet: {fileID: 7763392859987597357, guid: e993316cea393e047b488794eed8664b, type: 3}
+  bodyDamage: 10
+  bullet: {fileID: 7972890710456275085, guid: ea957a035af66f24c8312ca06c8be952, type: 3}
+  timeInterval: 100

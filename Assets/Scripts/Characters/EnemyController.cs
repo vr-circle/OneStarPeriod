@@ -12,21 +12,13 @@ namespace OneStarPeriod
 		{
 			public class EnemyController : MonoBehaviour
 			{
-				//[SerializeField]
-				//private GameObject enemy;//Listで一括管理の可能性があります
-
-
-
-				//[SerializeField]
-				//private GameObject appearanceEffect;
+				[SerializeField]
+				private List<GameObject> enemys;
 
 
 
 
-				//private void InstanceEnemy()
-				//{
 
-				//}
 			}
 
 		}

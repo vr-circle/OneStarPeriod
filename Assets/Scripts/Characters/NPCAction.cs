@@ -9,23 +9,21 @@ namespace OneStarPeriod
 		namespace Enemy
 		{
 
-			public class EnemyAction : MonoBehaviour
+			public class NPCAction : MonoBehaviour
 			{
 				[SerializeField]
 				private float bodyDamage = 10.0f;
 
-
 				[SerializeField]
 				private GameObject bullet;
-
 
 				private float bulletSpeed = 20.0f;
 				private float positionMargin = 1.0f;
 
 
-
-				private bool isShooted = false;
+				[SerializeField]
 				private float timeInterval = 0.5f;
+				private bool isShooted = true;
 				private float elapsedTime = 0.0f;
 
 				private void Update()
@@ -73,6 +71,10 @@ namespace OneStarPeriod
 						Vector3 startPosition = this.transform.position;
 						startPosition += this.transform.forward * positionMargin;
 						GameObject bulletTmp = Instantiate(bullet, startPosition, this.transform.rotation);
+
+						bulletTmp.transform.rotation = this.transform.rotation * Quaternion.Euler(-90, 0, 0);
+
+
 						bulletTmp.GetComponent<Rigidbody>().velocity = this.transform.forward * bulletSpeed;
 					}
 				}
