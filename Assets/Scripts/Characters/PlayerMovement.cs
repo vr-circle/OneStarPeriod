@@ -11,6 +11,9 @@ namespace OneStarPeriod
 		{
 			public class PlayerMovement : MonoBehaviour
 			{
+				private Animator animator;
+
+
 				Rigidbody playerRigidbody;
 				Plane plane = new Plane();
 
@@ -26,6 +29,7 @@ namespace OneStarPeriod
 
 				void Start()
 				{
+					animator = this.GetComponent<Animator>();
 					playerRigidbody = GetComponent<Rigidbody>();
 				}
 				private void Update()
@@ -33,30 +37,17 @@ namespace OneStarPeriod
 					inputHorizontal = Input.GetAxisRaw("Horizontal");
 					inputVertical = Input.GetAxisRaw("Vertical");
 
-					if (Input.GetMouseButtonDown(1))//right click
+					//playerの方向を取得し、animatorに値を渡す
+					Vector3 velocity = transform.InverseTransformDirection(this.playerRigidbody.velocity).normalized;
+					animator.SetFloat("MoveX", velocity.x);
+					animator.SetFloat("MoveZ", velocity.z);
+					if (inputHorizontal != 0 || inputVertical != 0)
 					{
-						//lock on 機能について要協議
-
-
-						//Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-
-						//RaycastHit hitObject;
-
-						//if (Physics.Raycast(ray, out hitObject, 20.0f))
-						//{
-						//	//Debug.Log(hitObject.transform.position);
-						//	if (hitObject.collider.tag == "Enemy")//fix has interface(whether possible to lock on) <-- tag=="Enemy"
-						//	{
-						//		isLockingOn = true;
-						//		targetObject = hitObject.collider.gameObject;
-
-						//	}
-						//	else
-						//	{
-						//		isLockingOn = false;
-						//	}
-
-						//}
+						animator.SetBool("isMoving", true);
+					}
+					else
+					{
+						animator.SetBool("isMoving", false);
 					}
 				}
 				void FixedUpdate()

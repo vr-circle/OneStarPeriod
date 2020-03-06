@@ -19,7 +19,6 @@ namespace OneStarPeriod
 			private GameObject strongBullet;
 
 			private float bulletSpeed = 20.0f;
-			private int bulletNum = 100000;
 			private float positionMargin = 1.5f;
 			private float necessaryMp = 40.0f;
 			private bool isShooted = false;
@@ -92,7 +91,11 @@ namespace OneStarPeriod
 
 				bulletTmp.transform.rotation = this.transform.rotation * Quaternion.Euler(-90, 0, 0);
 
-				bulletTmp.GetComponent<Rigidbody>().velocity = this.transform.forward * bulletSpeed;
+				Vector3 direction = this.transform.forward;
+
+				direction.y = 0;
+
+				bulletTmp.GetComponent<Rigidbody>().velocity = direction * bulletSpeed;
 
 				Destroy(bulletTmp, 5.0f);
 

@@ -12,7 +12,8 @@ namespace OneStarPeriod
 			public class NPCStatus : MonoBehaviour,IDamageable
 			{
 				private float hp;
-				private float maxHp = 30.0f;
+				[SerializeField]
+				private float maxHp = 10.0f;
 
 				private GameObject hpBar;
 				private Slider slider;

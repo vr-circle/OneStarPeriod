@@ -33,8 +33,6 @@ namespace OneStarPeriod
 				[SerializeField]
 				private MovementPattern nowPattern = MovementPattern.Clockwise;
 				private float speed = 80.0f;
-				private float minDistance = 3.0f;
-				private float maxDistance = 10.0f;
 
 				List<MovementPattern> patterns = new List<MovementPattern>();
 

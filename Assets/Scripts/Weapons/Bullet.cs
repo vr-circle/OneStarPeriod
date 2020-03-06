@@ -23,6 +23,9 @@ namespace OneStarPeriod
 
 			private void OnTriggerEnter(Collider other)
 			{
+
+				Debug.Log(other.gameObject.name);
+
 				if(other.tag == "Bullet")
 				{
 					return;

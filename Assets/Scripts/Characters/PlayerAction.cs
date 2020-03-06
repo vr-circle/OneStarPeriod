@@ -11,13 +11,16 @@ namespace OneStarPeriod
 			using Weapon;
 			public class PlayerAction : MonoBehaviour//, IDamageable
 			{
-				//[SerializeField]
-				//private GameObject gun;
+				private Animator animator;
+
+
 				[SerializeField]
 				private BulletController bulletController;
 
 				void Start()
 				{
+					animator = this.GetComponent<Animator>();
+
 					bulletController = GetComponent<BulletController>();
 				}
 
@@ -28,27 +31,36 @@ namespace OneStarPeriod
 
 				private void Action()
 				{
-					if (Input.GetMouseButton(0))//left
+					if (Input.GetMouseButton(0) || Input.GetKey(KeyCode.F))//left
 					{
-						bulletController.CommonShoot();
+						animator.SetBool("isShooting", true);
+						if (Input.GetMouseButton(0))
+						{
+							bulletController.CommonShoot();
+						}
+						else if (Input.GetKey(KeyCode.F))
+						{
+							bulletController.ShootStrongBullet();
+						}
 					}
+					else
+					{
+						animator.SetBool("isShooting", false);
+					}
+					
 
 					if (Input.GetMouseButton(1))//right
 					{
 						LockOn();
 					}
 
-					if (Input.GetKey(KeyCode.F))
-					{
-						bulletController.ShootStrongBullet();
-					}
 
 				}
 
 
 				private void LockOn()
 				{
-					Debug.Log("lock on");
+					//Debug.Log("lock on");
 				}
 
 
