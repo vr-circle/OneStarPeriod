@@ -11,6 +11,9 @@ namespace OneStarPeriod
 
 			public class NPCAction : MonoBehaviour
 			{
+
+
+
 				[SerializeField]
 				private float bodyDamage = 10.0f;
 
@@ -26,7 +29,7 @@ namespace OneStarPeriod
 				private bool isShooted = true;
 				private float elapsedTime = 0.0f;
 
-				private void Update()
+				private void FixedUpdate()
 				{
 					if (isShooted)
 					{

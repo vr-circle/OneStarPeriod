@@ -12,8 +12,14 @@ namespace OneStarPeriod
 		{
 			public class EnemyController : MonoBehaviour
 			{
+				
+
+
 				[SerializeField]
 				private List<GameObject> enemys;
+
+				[SerializeField]
+				private List<Vector3> spawnPosition;
 
 
 

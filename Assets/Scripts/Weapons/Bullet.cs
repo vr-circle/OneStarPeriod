@@ -24,7 +24,7 @@ namespace OneStarPeriod
 			private void OnTriggerEnter(Collider other)
 			{
 
-				Debug.Log(other.gameObject.name);
+				//Debug.Log(other.gameObject.name);
 
 				if(other.tag == "Bullet")
 				{
@@ -35,7 +35,7 @@ namespace OneStarPeriod
 
 				if (iDamageable != null)
 				{
-					Debug.Log("damage!");
+					//Debug.Log("damage!");
 					iDamageable.ApplyDamage(damage);
 				}
 

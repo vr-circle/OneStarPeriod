@@ -44,7 +44,7 @@ namespace OneStarPeriod
 					}
 					enemyRigidbody = this.GetComponent<Rigidbody>();
 				}
-				private void Update()
+				private void FixedUpdate()
 				{
 					if (targetObject == null)
 					{
