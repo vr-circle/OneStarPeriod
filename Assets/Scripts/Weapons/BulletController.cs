@@ -19,7 +19,7 @@ namespace OneStarPeriod
 			private GameObject strongBullet;
 
 			private float bulletSpeed = 20.0f;
-			private float positionMargin = 1.5f;
+			private float positionMargin = 1.0f;
 			private float yPositionMargin = 1.0f;
 
 

@@ -15,11 +15,21 @@ namespace OneStarPeriod
 				[SerializeField]
 				private float maxHp = 10.0f;
 
+				[SerializeField]
+				private GameObject destoyEffect;
+
+				private AudioSource audioSource;
+				[SerializeField]
+				private AudioClip destroySound;
+
 				private GameObject hpBar;
 				private Slider slider;
 
 				private void Start()
 				{
+					audioSource = GetComponent<AudioSource>();
+
+
 					hp = maxHp;
 					hpBar = this.gameObject.transform.Find("HPBar").gameObject;
 					slider = hpBar.transform.Find("Slider").gameObject.GetComponent<Slider>();
@@ -30,6 +40,9 @@ namespace OneStarPeriod
 					slider.value = hp / maxHp;
 					if (hp <= 0)
 					{
+						GameObject tmp = Instantiate(destoyEffect, this.transform.position, this.transform.rotation);
+						Destroy(tmp, 1.0f);
+						audioSource.PlayOneShot(destroySound);
 						Destroy(this.gameObject);
 					}
 				}
