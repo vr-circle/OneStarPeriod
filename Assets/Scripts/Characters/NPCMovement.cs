@@ -54,7 +54,8 @@ namespace OneStarPeriod
 						nowPattern = MovementPattern.Idling;
 						return;
 					}
-					transform.LookAt(targetObject.transform.position);
+					Vector3 lookPosition = new Vector3(targetObject.transform.position.x, this.transform.position.y, targetObject.transform.position.z);
+					transform.LookAt(lookPosition);
 					switch (nowPattern)
 					{
 						case MovementPattern.Idling:
