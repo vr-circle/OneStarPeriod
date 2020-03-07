@@ -33,6 +33,11 @@ namespace OneStarPeriod
 				AudioClip getDamageSound;
 
 
+				private float elapsedTime = 0.0f;
+				private float timeInterval = 1.0f;
+				private bool canGetDamage = true;
+
+
 				private void Start()
 				{
 					audioSource = GetComponent<AudioSource>();
@@ -56,27 +61,44 @@ namespace OneStarPeriod
 					{
 						//GameOverSceneに遷移させる
 						FadeManager.FadeOut("ResultScene");
-
 					}
 
 					hpSlider.value = hp / maxHp;
 					mpSlider.value = mp / maxMp;
+
+					if (canGetDamage == false)
+					{
+						elapsedTime += Time.deltaTime;
+						if (elapsedTime > timeInterval)
+						{
+							elapsedTime = 0;
+							canGetDamage = true;
+						}
+					}
 				}
 				private void LateUpdate()
 				{
 					mp += mpRecoverySpeed;
 				}
 
+				private void FixedUpdate()
+				{
+				}
 
 
 				public void ApplyDamage(float damage)
 				{
-					audioSource.PlayOneShot(getDamageSound);
+					if (canGetDamage)
+					{
 
+						canGetDamage = false;
 
-					cameraController.Shake(0.2f,0.08f);
+						audioSource.PlayOneShot(getDamageSound);
 
-					this.hp -= damage;
+						cameraController.Shake(0.2f, 0.08f);
+
+						this.hp -= damage;
+					}
 				}
 
 				public float GetMp()
