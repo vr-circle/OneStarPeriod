@@ -28,8 +28,17 @@ namespace OneStarPeriod
 				private GameObject mainCamera;
 				private CameraController cameraController;
 
+				private AudioSource audioSource;
+				[SerializeField]
+				AudioClip getDamageSound;
+
+
 				private void Start()
 				{
+					audioSource = GetComponent<AudioSource>();
+
+
+
 					mainCamera = this.transform.Find("MainCamera").gameObject;
 					cameraController = mainCamera.GetComponent<CameraController>();
 
@@ -62,6 +71,9 @@ namespace OneStarPeriod
 
 				public void ApplyDamage(float damage)
 				{
+					audioSource.PlayOneShot(getDamageSound);
+
+
 					cameraController.Shake(0.2f,0.08f);
 
 					this.hp -= damage;
