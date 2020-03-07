@@ -172,7 +172,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7188075849531886086}
-  - component: {fileID: 7188075850193427766}
   m_Layer: 0
   m_Name: Hand_L
   m_TagString: Untagged
@@ -195,20 +194,6 @@ Transform:
   m_Father: {fileID: 7188075849531886098}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!136 &7188075850193427766
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7188075849532184102}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  m_Radius: 0.01
-  m_Height: 0.04
-  m_Direction: 1
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &7188075849532184104
 GameObject:
   m_ObjectHideFlags: 0
@@ -450,7 +435,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7188075849532184118}
   m_LocalRotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071067}
-  m_LocalPosition: {x: -0, y: 0, z: 0}
+  m_LocalPosition: {x: -0, y: -1.86, z: 0}
   m_LocalScale: {x: 100, y: 100, z: 100}
   m_Children:
   - {fileID: 7188075849531886130}
@@ -544,7 +529,7 @@ CapsuleCollider:
   m_Radius: 1.05
   m_Height: 4.44
   m_Direction: 1
-  m_Center: {x: 0, y: 2.25, z: 0}
+  m_Center: {x: 0, y: 0.18, z: 0}
 --- !u!114 &7188075849892608723
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -587,10 +572,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2d2b93daaaa638745b6887168ea2994e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bodyDamage: 100
+  bodyDamage: 50
   bullet: {fileID: 2361491668392493226, guid: 809aedc99dad9cc4b8f385ea879e2e89, type: 3}
   positionMargin: 1
-  timeInterval: 0.5
+  timeInterval: 10000
 --- !u!1 &7188075849532184122
 GameObject:
   m_ObjectHideFlags: 0

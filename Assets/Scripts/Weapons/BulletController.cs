@@ -36,7 +36,7 @@ namespace OneStarPeriod
 			}
 
 
-			private void Update()
+			private void FixedUpdate()
 			{
 				if (isShooted)
 				{
@@ -102,7 +102,7 @@ namespace OneStarPeriod
 
 				bulletTmp.GetComponent<Rigidbody>().velocity = direction * bulletSpeed;
 
-				Destroy(bulletTmp, 5.0f);
+				//Destroy(bulletTmp, 5.0f);
 
 			}
 

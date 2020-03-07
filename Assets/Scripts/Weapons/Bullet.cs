@@ -16,7 +16,7 @@ namespace OneStarPeriod
 
 			private void Start()
 			{
-				Destroy(this.gameObject, 3.0f);
+				Destroy(this.gameObject, 10.0f);
 			}
 
 

@@ -24,9 +24,6 @@ namespace OneStarPeriod
 				private float inputHorizontal;
 				private float inputVertical;
 
-				private bool isLockingOn = false;
-				GameObject targetObject;
-
 				void Start()
 				{
 					animator = this.GetComponent<Animator>();
@@ -34,10 +31,21 @@ namespace OneStarPeriod
 				}
 				private void Update()
 				{
+
 					inputHorizontal = Input.GetAxisRaw("Horizontal");
 					inputVertical = Input.GetAxisRaw("Vertical");
 
 					//playerの方向を取得し、animatorに値を渡す
+				}
+				void FixedUpdate()
+				{
+
+					Vector3 inputDirection = Vector3.Normalize(new Vector3(inputHorizontal, 0, inputVertical));
+
+					playerRigidbody.velocity = inputDirection * moveSpeed + new Vector3(0, playerRigidbody.velocity.y, 0);
+
+					UpdateRotation();
+
 					Vector3 velocity = transform.InverseTransformDirection(this.playerRigidbody.velocity).normalized;
 					animator.SetFloat("MoveX", velocity.x);
 					animator.SetFloat("MoveZ", velocity.z);
@@ -49,52 +57,21 @@ namespace OneStarPeriod
 					{
 						animator.SetBool("isMoving", false);
 					}
-
-
-				}
-				void FixedUpdate()
-				{
-					Vector3 yVelocityTmp = playerRigidbody.velocity;
-
-					Vector3 inputDirection = Vector3.Normalize(new Vector3(inputHorizontal, 0, inputVertical));
-
-					playerRigidbody.velocity = inputDirection * moveSpeed + new Vector3(0, playerRigidbody.velocity.y, 0);
-
-					UpdateRotation();
 				}
 
 				private void UpdateRotation()
 				{
-					if (isLockingOn)
+					var ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+
+					// プレイヤーの高さにPlaneを更新して、カメラの情報を元に地面判定して距離を取得
+					plane.SetNormalAndPosition(Vector3.up, transform.localPosition);
+					if (plane.Raycast(ray, out distance))
 					{
-						if (targetObject == null)
-						{
-							isLockingOn = false;
-
-							return;
-
-						}
-
-
-						Vector3 targetPosition = targetObject.transform.position;
-
-						targetPosition.y = this.transform.position.y;
-
-						transform.LookAt(targetPosition);
+						// 距離を元に交点を算出して、交点の方を向く
+						var lookPoint = ray.GetPoint(distance);
+						transform.LookAt(lookPoint);
 					}
-					else
-					{
-						var ray = Camera.main.ScreenPointToRay(Input.mousePosition);
 
-						// プレイヤーの高さにPlaneを更新して、カメラの情報を元に地面判定して距離を取得
-						plane.SetNormalAndPosition(Vector3.up, transform.localPosition);
-						if (plane.Raycast(ray, out distance))
-						{
-							// 距離を元に交点を算出して、交点の方を向く
-							var lookPoint = ray.GetPoint(distance);
-							transform.LookAt(lookPoint);
-						}
-					}
 				}
 
 

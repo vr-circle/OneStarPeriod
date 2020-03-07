@@ -23,7 +23,7 @@ namespace OneStarPeriod
 
 			public class NPCMovement : MonoBehaviour
 			{
-				
+
 
 
 				[SerializeField]
@@ -70,27 +70,73 @@ namespace OneStarPeriod
 							if (movementTimer > chengePatternTime)
 							{
 								movementTimer = 0;
-								initPattern = RandomMovementPattern();
+								nowPattern = RandomMovementPattern();
 							}
+
+							switch (nowPattern)
+							{
+								case MovementPattern.Idling:
+									break;
+								case MovementPattern.Approaching:
+									speed = 3.0f;
+									enemyRigidbody.velocity =
+										new Vector3(
+											transform.forward.x * speed,
+											enemyRigidbody.velocity.y,
+											transform.forward.z * speed
+										);
+									break;
+								case MovementPattern.Leave:
+									speed = 3.0f;
+									enemyRigidbody.velocity =
+										new Vector3(
+											transform.forward.x * speed * -1,
+											enemyRigidbody.velocity.y,
+											transform.forward.z * speed * -1
+										);
+									break;
+								case MovementPattern.Clockwise:
+									{
+										float nowDistance = Vector3.Distance(this.transform.position, targetObject.transform.position);
+										speed = 360.0f / nowDistance;
+										Vector3 axis = transform.TransformDirection(Vector3.up);
+										transform.RotateAround(targetObject.transform.position, axis, speed * Time.deltaTime);
+										break;
+									}
+								case MovementPattern.AntiClockwise:
+									{
+										float nowDistance = Vector3.Distance(this.transform.position, targetObject.transform.position);
+										speed = 360.0f / nowDistance;
+										Vector3 axis = transform.TransformDirection(Vector3.down);
+										transform.RotateAround(targetObject.transform.position, axis, speed * Time.deltaTime);
+										break;
+									}
+								case MovementPattern.Disengage:
+									break;
+							}
+
+
+
+
 
 							break;
 						case MovementPattern.Approaching:
-								speed = 3.0f;
-								enemyRigidbody.velocity =
-									new Vector3(
-										transform.forward.x * speed,
-										enemyRigidbody.velocity.y,
-										transform.forward.z * speed
-									);
+							speed = 3.0f;
+							enemyRigidbody.velocity =
+								new Vector3(
+									transform.forward.x * speed,
+									enemyRigidbody.velocity.y,
+									transform.forward.z * speed
+								);
 							break;
 						case MovementPattern.Leave:
-								speed = 3.0f;
-								enemyRigidbody.velocity =
-									new Vector3(
-										transform.forward.x * speed * -1,
-										enemyRigidbody.velocity.y,
-										transform.forward.z * speed * -1
-									);
+							speed = 3.0f;
+							enemyRigidbody.velocity =
+								new Vector3(
+									transform.forward.x * speed * -1,
+									enemyRigidbody.velocity.y,
+									transform.forward.z * speed * -1
+								);
 							break;
 						case MovementPattern.Clockwise:
 							{

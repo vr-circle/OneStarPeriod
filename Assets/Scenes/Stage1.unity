@@ -977,6 +977,11 @@ PrefabInstance:
       propertyPath: mpBar
       value: 
       objectReference: {fileID: 1293293051}
+    - target: {fileID: 7002034249162015767, guid: 4f6192cc22fd761468a4cf13810b64b3,
+        type: 3}
+      propertyPath: maxHp
+      value: 10000
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4f6192cc22fd761468a4cf13810b64b3, type: 3}
 --- !u!1001 &1877538465

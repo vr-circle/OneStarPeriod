@@ -12,6 +12,7 @@ namespace OneStarPeriod
 			public class PlayerStatus : MonoBehaviour, IDamageable
 			{
 				private float hp;
+				[SerializeField]
 				private float maxHp = 50.0f;
 				private float mp;
 				private float maxMp = 50.0f;
@@ -34,7 +35,7 @@ namespace OneStarPeriod
 
 
 				private float elapsedTime = 0.0f;
-				private float timeInterval = 0.1f;
+				private float timeInterval = 1.0f;
 				private bool canGetDamage = true;
 
 
@@ -105,6 +106,10 @@ namespace OneStarPeriod
 						cameraController.Shake(0.2f, 0.08f);
 
 						this.hp -= damage;
+						if (hp > maxHp)
+						{
+							hp = maxHp;
+						}
 					}
 				}
 
