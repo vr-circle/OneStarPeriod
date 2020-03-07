@@ -42,7 +42,7 @@ namespace OneStarPeriod
 					{
 						GameObject tmp = Instantiate(destoyEffect, this.transform.position, this.transform.rotation);
 						Destroy(tmp, 1.0f);
-						audioSource.PlayOneShot(destroySound);
+						//audioSource.PlayOneShot(destroySound);
 						Destroy(this.gameObject);
 					}
 				}
