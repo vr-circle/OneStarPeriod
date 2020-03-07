@@ -31,14 +31,14 @@ namespace OneStarPeriod
 
 				private void Action()
 				{
-					if (Input.GetMouseButton(0) || Input.GetKey(KeyCode.F))//left
+					if (Input.GetMouseButton(0) || Input.GetMouseButton(1))//left
 					{
 						animator.SetBool("isShooting", true);
 						if (Input.GetMouseButton(0))
 						{
 							bulletController.CommonShoot();
 						}
-						else if (Input.GetKey(KeyCode.F))
+						else if (Input.GetMouseButton(1))
 						{
 							bulletController.ShootStrongBullet();
 						}
@@ -49,18 +49,7 @@ namespace OneStarPeriod
 					}
 					
 
-					if (Input.GetMouseButton(1))//right
-					{
-						LockOn();
-					}
 
-
-				}
-
-
-				private void LockOn()
-				{
-					//Debug.Log("lock on");
 				}
 
 

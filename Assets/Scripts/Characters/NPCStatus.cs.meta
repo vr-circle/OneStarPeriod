@@ -3,7 +3,10 @@ guid: d7476d34900adb44e92f4fc41d089fca
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - destoyEffect: {fileID: 1220711346954658448, guid: 2053b6f60d8418745a11fd8d21b3ab03,
+      type: 3}
+  - destroySound: {fileID: 8300000, guid: 55a17d62950f9b34482e816f658ccd5d, type: 3}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

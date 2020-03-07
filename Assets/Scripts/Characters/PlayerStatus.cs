@@ -34,7 +34,7 @@ namespace OneStarPeriod
 
 
 				private float elapsedTime = 0.0f;
-				private float timeInterval = 1.0f;
+				private float timeInterval = 0.1f;
 				private bool canGetDamage = true;
 
 
