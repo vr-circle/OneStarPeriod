@@ -49,7 +49,7 @@ namespace OneStarPeriod
 
 					if (nowEnemyNum == 0)
 					{
-						FadeManager.FadeOut("ResultScene");
+						FadeManager.FadeOut("ClearScene");
 					}
 
 

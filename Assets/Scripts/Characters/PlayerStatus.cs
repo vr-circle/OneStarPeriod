@@ -60,7 +60,7 @@ namespace OneStarPeriod
 					if (hp <= 0.0f)
 					{
 						//GameOverSceneに遷移させる
-						FadeManager.FadeOut("ResultScene");
+						FadeManager.FadeOut("GameOver");
 					}
 
 					hpSlider.value = hp / maxHp;
@@ -93,7 +93,14 @@ namespace OneStarPeriod
 
 						canGetDamage = false;
 
-						audioSource.PlayOneShot(getDamageSound);
+						if (damage > 0)
+						{
+							audioSource.PlayOneShot(getDamageSound);
+						}
+						else
+						{
+
+						}
 
 						cameraController.Shake(0.2f, 0.08f);
 

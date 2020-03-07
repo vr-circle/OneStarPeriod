@@ -9,13 +9,32 @@ namespace OneStarPeriod
 	{
 		public class InputDirector : MonoBehaviour
 		{
+			private float nowTime = 0.0f;
+
+			private float waitTime = 1.0f;
+
+
+			private void Start()
+			{
+				nowTime = 0.0f;
+			}
+
+
 			private void Update()
 			{
-				if ((Input.GetKeyDown("return")) || (Input.GetMouseButtonDown(0)))
+				if (waitTime < nowTime)
 				{
-					FadeManager.FadeOut("StageSelect");
+					if (Input.anyKeyDown)
+					{
+						FadeManager.FadeOut("StageSelect");
+					}
 				}
 			}
+			private void FixedUpdate()
+			{
+				nowTime += Time.deltaTime;
+			}
+
 		}
 	}
 }
