@@ -128,7 +128,7 @@ MonoBehaviour:
   maxHp: 10
   destoyEffect: {fileID: 1220711346954658448, guid: 2053b6f60d8418745a11fd8d21b3ab03,
     type: 3}
-  destroySound: {fileID: 8300000, guid: cb52d71532e4a7c40bb6a6e409016237, type: 3}
+  destroySound: {fileID: 8300000, guid: 55a17d62950f9b34482e816f658ccd5d, type: 3}
 --- !u!114 &5677199690342333509
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -168,7 +168,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: cb52d71532e4a7c40bb6a6e409016237, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 55a17d62950f9b34482e816f658ccd5d, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 0.3
   m_Pitch: 1
