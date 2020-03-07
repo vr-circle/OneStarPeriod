@@ -31,7 +31,8 @@ namespace OneStarPeriod
 				private float movementTimer = 0.0f;
 
 				[SerializeField]
-				private MovementPattern nowPattern = MovementPattern.Clockwise;
+				private MovementPattern initPattern;
+				private MovementPattern nowPattern;
 				private float speed = 80.0f;
 
 				List<MovementPattern> patterns = new List<MovementPattern>();
@@ -51,12 +52,12 @@ namespace OneStarPeriod
 				{
 					if (targetObject == null)
 					{
-						nowPattern = MovementPattern.Idling;
+						initPattern = MovementPattern.Idling;
 						return;
 					}
 					Vector3 lookPosition = new Vector3(targetObject.transform.position.x, this.transform.position.y, targetObject.transform.position.z);
 					transform.LookAt(lookPosition);
-					switch (nowPattern)
+					switch (initPattern)
 					{
 						case MovementPattern.Idling:
 							break;
@@ -66,7 +67,7 @@ namespace OneStarPeriod
 							if (movementTimer > chengePatternTime)
 							{
 								movementTimer = 0;
-								nowPattern = RandomMovementPattern();
+								initPattern = RandomMovementPattern();
 							}
 
 							break;

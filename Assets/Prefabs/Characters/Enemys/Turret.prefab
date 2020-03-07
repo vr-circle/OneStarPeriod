@@ -142,7 +142,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   targetObject: {fileID: 0}
-  nowPattern: 1
+  initPattern: 1
 --- !u!114 &5677199690342333508
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -157,6 +157,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bodyDamage: 10
   bullet: {fileID: 7972890710456275085, guid: ea957a035af66f24c8312ca06c8be952, type: 3}
+  positionMargin: 1
   timeInterval: 2
 --- !u!82 &82802914944055588
 AudioSource:
