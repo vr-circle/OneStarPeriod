@@ -41,7 +41,7 @@ namespace OneStarPeriod
 					Vector3 velocity = transform.InverseTransformDirection(this.playerRigidbody.velocity).normalized;
 					animator.SetFloat("MoveX", velocity.x);
 					animator.SetFloat("MoveZ", velocity.z);
-					if (inputHorizontal != 0 || inputVertical != 0)
+					if (velocity != Vector3.zero)
 					{
 						animator.SetBool("isMoving", true);
 					}
@@ -49,6 +49,8 @@ namespace OneStarPeriod
 					{
 						animator.SetBool("isMoving", false);
 					}
+
+
 				}
 				void FixedUpdate()
 				{

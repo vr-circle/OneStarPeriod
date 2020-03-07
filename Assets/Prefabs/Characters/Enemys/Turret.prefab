@@ -124,6 +124,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d7476d34900adb44e92f4fc41d089fca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  maxHp: 10
 --- !u!114 &5677199690342333509
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -152,7 +153,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bodyDamage: 10
   bullet: {fileID: 7972890710456275085, guid: ea957a035af66f24c8312ca06c8be952, type: 3}
-  timeInterval: 0.5
+  timeInterval: 2
 --- !u!1 &5677199690950582837
 GameObject:
   m_ObjectHideFlags: 0

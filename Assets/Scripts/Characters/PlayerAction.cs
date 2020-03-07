@@ -9,7 +9,7 @@ namespace OneStarPeriod
 		namespace Player
 		{
 			using Weapon;
-			public class PlayerAction : MonoBehaviour//, IDamageable
+			public class PlayerAction : MonoBehaviour
 			{
 				private Animator animator;
 
