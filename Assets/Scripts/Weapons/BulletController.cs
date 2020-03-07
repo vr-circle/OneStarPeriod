@@ -20,6 +20,9 @@ namespace OneStarPeriod
 
 			private float bulletSpeed = 20.0f;
 			private float positionMargin = 1.5f;
+			private float yPositionMargin = 1.0f;
+
+
 			private float necessaryMp = 20.0f;
 			private bool isShooted = false;
 			private bool isDecrease = false;
@@ -86,6 +89,8 @@ namespace OneStarPeriod
 			{
 				Vector3 startPosition = this.transform.position;
 				startPosition += this.transform.forward * positionMargin;
+				startPosition += new Vector3(0, yPositionMargin, 0);
+
 
 				GameObject bulletTmp = Instantiate(bullet, startPosition,Quaternion.identity);
 
