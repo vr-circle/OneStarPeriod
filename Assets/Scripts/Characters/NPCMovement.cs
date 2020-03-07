@@ -23,6 +23,9 @@ namespace OneStarPeriod
 
 			public class NPCMovement : MonoBehaviour
 			{
+				
+
+
 				[SerializeField]
 				private GameObject targetObject;
 				private Rigidbody enemyRigidbody;
@@ -123,6 +126,13 @@ namespace OneStarPeriod
 				{
 					int index = UnityEngine.Random.Range(0, patterns.Count);
 					return patterns[index];
+				}
+
+
+
+				public void SetMovementPattern(MovementPattern tmp)
+				{
+					this.initPattern = tmp;
 				}
 
 			}

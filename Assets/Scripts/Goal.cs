@@ -13,7 +13,7 @@ namespace OneStarPeriod
 		{
 			if (other.tag == "Player")
 			{
-				//FadeManager.FadeOut("Stage1");
+				FadeManager.FadeOut("StageSelect");
 
 
 			}
