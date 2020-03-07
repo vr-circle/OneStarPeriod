@@ -1765,8 +1765,8 @@ MonoBehaviour:
   - {x: 15, y: 1, z: 11}
   - {x: 15, y: 1, z: -1}
   - {x: -16, y: 1, z: -4}
-  enemySum: 15
-  initEnemyNum: 5
+  enemySum: 20
+  initEnemyNum: 3
 --- !u!1 &2071277350
 GameObject:
   m_ObjectHideFlags: 0
