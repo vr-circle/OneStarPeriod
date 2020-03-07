@@ -23,9 +23,6 @@ namespace OneStarPeriod
 
 			public class NPCMovement : MonoBehaviour
 			{
-
-
-
 				[SerializeField]
 				private GameObject targetObject;
 				private Rigidbody enemyRigidbody;

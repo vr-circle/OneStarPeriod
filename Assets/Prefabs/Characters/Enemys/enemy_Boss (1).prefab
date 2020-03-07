@@ -389,7 +389,6 @@ MonoBehaviour:
   maxHp: 500
   destoyEffect: {fileID: 1220711346954658448, guid: 2053b6f60d8418745a11fd8d21b3ab03,
     type: 3}
-  destroySound: {fileID: 8300000, guid: 55a17d62950f9b34482e816f658ccd5d, type: 3}
 --- !u!114 &6913511323735160642
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -419,7 +418,7 @@ MonoBehaviour:
   bodyDamage: 100
   bullet: {fileID: 2361491668392493226, guid: 809aedc99dad9cc4b8f385ea879e2e89, type: 3}
   positionMargin: 1
-  timeInterval: 10
+  timeInterval: 5
 --- !u!1 &6913511322082106288
 GameObject:
   m_ObjectHideFlags: 0

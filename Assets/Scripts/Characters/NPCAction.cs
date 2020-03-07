@@ -8,12 +8,8 @@ namespace OneStarPeriod
 	{
 		namespace Enemy
 		{
-
 			public class NPCAction : MonoBehaviour
 			{
-
-
-
 				[SerializeField]
 				private float bodyDamage = 10.0f;
 
@@ -29,8 +25,6 @@ namespace OneStarPeriod
 				private float timeInterval = 0.5f;
 				private bool isShooted = true;
 				private float elapsedTime = 0.0f;
-
-
 
 				private void FixedUpdate()
 				{
@@ -51,6 +45,7 @@ namespace OneStarPeriod
 					}
 				}
 
+				//actionで当たり判定検知はおかしいから書き直し
 				private void OnCollisionStay(Collision collision)
 				{
 					if(collision.gameObject.tag == "Enemy")

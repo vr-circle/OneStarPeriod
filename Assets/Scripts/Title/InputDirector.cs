@@ -11,7 +11,7 @@ namespace OneStarPeriod
 		{
 			private float nowTime = 0.0f;
 
-			private float waitTime = 1.0f;
+			private float waitTime = 0.5f;
 
 
 			private void Start()

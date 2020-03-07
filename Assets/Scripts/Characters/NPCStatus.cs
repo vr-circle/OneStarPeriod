@@ -18,18 +18,12 @@ namespace OneStarPeriod
 				[SerializeField]
 				private GameObject destoyEffect;
 
-				private AudioSource audioSource;
-				[SerializeField]
-				private AudioClip destroySound;
 
 				private GameObject hpBar;
 				private Slider slider;
 
 				private void Start()
 				{
-					audioSource = GetComponent<AudioSource>();
-
-
 					hp = maxHp;
 					hpBar = this.gameObject.transform.Find("HPBar").gameObject;
 					slider = hpBar.transform.Find("Slider").gameObject.GetComponent<Slider>();
@@ -42,14 +36,12 @@ namespace OneStarPeriod
 					{
 						GameObject tmp = Instantiate(destoyEffect, this.transform.position, this.transform.rotation);
 						Destroy(tmp, 1.0f);
-						//audioSource.PlayOneShot(destroySound);
 						Destroy(this.gameObject);
 					}
 				}
 
 				private void LateUpdate()
 				{
-					//UIが常にカメラの向きに向くようにする	
 					hpBar.transform.rotation = Camera.main.transform.rotation;
 				}
 
@@ -58,11 +50,6 @@ namespace OneStarPeriod
 
 					hp -= damage;
 
-				}
-
-				public void LockedOn()
-				{
-					//これいらない気がする
 				}
 			}
 		}

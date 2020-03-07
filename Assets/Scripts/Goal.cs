@@ -14,8 +14,6 @@ namespace OneStarPeriod
 			if (other.tag == "Player")
 			{
 				FadeManager.FadeOut("StageSelect");
-
-
 			}
 		}
 	}

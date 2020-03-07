@@ -11,19 +11,19 @@ namespace OneStarPeriod
 		{
 			public class PlayerStatus : MonoBehaviour, IDamageable
 			{
-				private float hp;
-				[SerializeField]
-				private float maxHp = 50.0f;
-				private float mp;
-				private float maxMp = 50.0f;
-				private float mpRecoverySpeed = 0.1f;
-
 				[SerializeField]
 				private GameObject hpBar;
 				[SerializeField]
-				private GameObject mpBar;
-
+				private float maxHp;
+				private float hp;
 				private Slider hpSlider;
+
+				[SerializeField]
+				private GameObject mpBar;
+				[SerializeField]
+				private float maxMp = 50.0f;
+				private float mp;
+				private float mpRecoverySpeed = 0.1f;
 				private Slider mpSlider;
 
 				private GameObject mainCamera;
@@ -32,22 +32,20 @@ namespace OneStarPeriod
 				private AudioSource audioSource;
 				[SerializeField]
 				AudioClip getDamageSound;
+				[SerializeField]
+				AudioClip healing;
 
 
 				private float elapsedTime = 0.0f;
 				private float timeInterval = 1.0f;
 				private bool canGetDamage = true;
 
-
 				private void Start()
 				{
 					audioSource = GetComponent<AudioSource>();
 
-
-
 					mainCamera = this.transform.Find("MainCamera").gameObject;
 					cameraController = mainCamera.GetComponent<CameraController>();
-
 
 					hp = maxHp;
 					mp = maxMp;
@@ -60,7 +58,6 @@ namespace OneStarPeriod
 				{
 					if (hp <= 0.0f)
 					{
-						//GameOverSceneに遷移させる
 						FadeManager.FadeOut("GameOver");
 					}
 
@@ -80,38 +77,28 @@ namespace OneStarPeriod
 				private void LateUpdate()
 				{
 					mp += mpRecoverySpeed;
+					mp = Mathf.Min(mp, maxMp);
 				}
-
-				private void FixedUpdate()
-				{
-				}
-
 
 				public void ApplyDamage(float damage)
 				{
 					if (canGetDamage)
 					{
-
-						canGetDamage = false;
-
 						if (damage > 0)
 						{
+							canGetDamage = false;
 							audioSource.PlayOneShot(getDamageSound);
+							cameraController.Shake(0.2f, 0.08f);
 						}
 						else
 						{
-
+							audioSource.PlayOneShot(healing);
 						}
-
-						cameraController.Shake(0.2f, 0.08f);
-
 						this.hp -= damage;
-						if (hp > maxHp)
-						{
-							hp = maxHp;
-						}
+						hp = Mathf.Min(hp, maxHp);
 					}
 				}
+
 
 				public float GetMp()
 				{

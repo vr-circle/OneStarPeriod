@@ -4,60 +4,57 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
-namespace OneStarPeriod
+namespace OneStarPeriod.StageSelectScene
 {
-	namespace StageSelectScene
+
+	public class ButtonDirector : MonoBehaviour
 	{
+		[SerializeField]
+		private GameObject mainCanvas;
 
-		public class ButtonDirector : MonoBehaviour
+
+		[SerializeField]
+		private GameObject buttonPrefab;
+
+
+		[SerializeField]
+		private List<Scene> stages;
+
+
+		void Start()
 		{
-			[SerializeField]
-			private GameObject mainCanvas;
+			FadeManager.FadeIn();
 
 
-			[SerializeField]
-			private GameObject buttonPrefab;
 
-
-			[SerializeField]
-			private List<Scene> stages;
-
-
-			void Start()
+			for (int i = 1; i < stages.Count + 1; i++)
 			{
-				FadeManager.FadeIn();
+				float xMargin = 100;
+				float yMargin = -200;
+				Vector3 buttonPosition = new Vector3(i * xMargin, yMargin, 0);
 
 
+				GameObject buttonObject = (GameObject)Instantiate(this.buttonPrefab, buttonPosition, Quaternion.identity);
+				buttonObject.transform.SetParent(mainCanvas.transform, false);
 
-				for (int i = 1; i < stages.Count + 1; i++)
+				buttonObject.name = i.ToString();
+				Button button = buttonObject.GetComponent<Button>();
+
+				Text t = button.transform.FindChild("Text").gameObject.GetComponent<Text>();
+				t.text = "Stage" + i.ToString();
+
+				button.onClick.AddListener(() =>
 				{
-					float xMargin = 100;
-					float yMargin = -200;
-					Vector3 buttonPosition = new Vector3(i * xMargin, yMargin, 0);
-
-
-					GameObject buttonObject = (GameObject)Instantiate(this.buttonPrefab, buttonPosition, Quaternion.identity);
-					buttonObject.transform.SetParent(mainCanvas.transform, false);
-
-					buttonObject.name = i.ToString();
-					Button button = buttonObject.GetComponent<Button>();
-
-					Text t = button.transform.FindChild("Text").gameObject.GetComponent<Text>();
-					t.text = "Stage" + i.ToString();
-
-					button.onClick.AddListener(() =>
-					{
-						Debug.Log(buttonObject.name);
+					Debug.Log(buttonObject.name);
 						//各シーンの読み込み処理
 						FadeManager.FadeOut(t.text);
-					});
+				});
 
-
-
-				}
 
 
 			}
+
+
 		}
 	}
 }

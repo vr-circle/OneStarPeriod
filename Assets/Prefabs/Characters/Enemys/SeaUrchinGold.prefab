@@ -125,10 +125,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d7476d34900adb44e92f4fc41d089fca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHp: 30
+  maxHp: 50
   destoyEffect: {fileID: 1220711346954658448, guid: 2053b6f60d8418745a11fd8d21b3ab03,
     type: 3}
-  destroySound: {fileID: 8300000, guid: 55a17d62950f9b34482e816f658ccd5d, type: 3}
 --- !u!114 &3703050108914794203
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -155,7 +154,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2d2b93daaaa638745b6887168ea2994e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bodyDamage: 100
+  bodyDamage: 80
   bullet: {fileID: 7972890710456275085, guid: ea957a035af66f24c8312ca06c8be952, type: 3}
   positionMargin: 1
   timeInterval: 2

@@ -1,19 +1,16 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace OneStarPeriod
 {
-
-
 	namespace Character
 	{
 		namespace Enemy
 		{
 			public class EnemyController : MonoBehaviour
 			{
-
-
 
 				[SerializeField]
 				private List<GameObject> enemys;
@@ -28,9 +25,9 @@ namespace OneStarPeriod
 				private int maxEnemyEntity;
 				private int nowEnemyNum = 0;
 
-
 				private void Start()
 				{
+
 					maxEnemyEntity = initEnemyNum;
 					while (initEnemyNum > 0)
 					{
@@ -38,7 +35,6 @@ namespace OneStarPeriod
 						initEnemyNum--;
 					}
 				}
-
 
 				private void Update()
 				{
@@ -53,8 +49,6 @@ namespace OneStarPeriod
 					{
 						FadeManager.FadeOut("ClearScene");
 					}
-
-
 				}
 
 

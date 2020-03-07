@@ -10,22 +10,15 @@ namespace OneStarPeriod
 		public class Bullet : MonoBehaviour
 		{
 			[SerializeField]
-			private float damage = 0.5f;
-
-
+			private float damage;
 
 			private void Start()
 			{
 				Destroy(this.gameObject, 10.0f);
 			}
 
-
-
 			private void OnTriggerEnter(Collider other)
 			{
-
-				//Debug.Log(other.gameObject.name);
-
 				if(other.tag == "Bullet")
 				{
 					return;
@@ -35,10 +28,8 @@ namespace OneStarPeriod
 
 				if (iDamageable != null)
 				{
-					//Debug.Log("damage!");
 					iDamageable.ApplyDamage(damage);
 				}
-
 
 				Destroy(this.gameObject);
 			}

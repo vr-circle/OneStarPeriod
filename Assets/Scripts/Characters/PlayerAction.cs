@@ -2,58 +2,50 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace OneStarPeriod
+namespace OneStarPeriod.Character.Player
 {
-	namespace Character
+
+	using Weapon;
+	public class PlayerAction : MonoBehaviour
 	{
-		namespace Player
+		private Animator animator;
+
+
+		[SerializeField]
+		private BulletController bulletController;
+
+		void Start()
 		{
-			using Weapon;
-			public class PlayerAction : MonoBehaviour
+			animator = this.GetComponent<Animator>();
+
+			bulletController = GetComponent<BulletController>();
+		}
+
+		void Update()
+		{
+			Action();
+		}
+
+		private void Action()
+		{
+			if (Input.GetMouseButton(0) || Input.GetMouseButton(1))//left
 			{
-				private Animator animator;
-
-
-				[SerializeField]
-				private BulletController bulletController;
-
-				void Start()
+				animator.SetBool("isShooting", true);
+				if (Input.GetMouseButton(0))
 				{
-					animator = this.GetComponent<Animator>();
-
-					bulletController = GetComponent<BulletController>();
+					bulletController.CommonShoot();
 				}
-
-				void Update()
+				else if (Input.GetMouseButton(1))
 				{
-					Action();
+					bulletController.ShootStrongBullet();
 				}
-
-				private void Action()
-				{
-					if (Input.GetMouseButton(0) || Input.GetMouseButton(1))//left
-					{
-						animator.SetBool("isShooting", true);
-						if (Input.GetMouseButton(0))
-						{
-							bulletController.CommonShoot();
-						}
-						else if (Input.GetMouseButton(1))
-						{
-							bulletController.ShootStrongBullet();
-						}
-					}
-					else
-					{
-						animator.SetBool("isShooting", false);
-					}
-					
-
-
-				}
-
-
+			}
+			else
+			{
+				animator.SetBool("isShooting", false);
 			}
 		}
+
+
 	}
 }

@@ -23,7 +23,7 @@ namespace OneStarPeriod
 			private float yPositionMargin = 1.0f;
 
 
-			private float necessaryMp = 20.0f;
+			private float necessaryMp = 10.0f;
 			private bool isShooted = false;
 			private bool isDecrease = false;
 
@@ -74,8 +74,6 @@ namespace OneStarPeriod
 					}
 				}
 			}
-
-
 			public void CommonShoot()
 			{
 				if (!isShooted)
@@ -84,7 +82,6 @@ namespace OneStarPeriod
 					Shoot(this.bullet);
 				}
 			}
-
 			private void Shoot(GameObject bullet)
 			{
 				Vector3 startPosition = this.transform.position;
@@ -93,17 +90,10 @@ namespace OneStarPeriod
 
 
 				GameObject bulletTmp = Instantiate(bullet, startPosition,Quaternion.identity);
-
 				bulletTmp.transform.rotation = this.transform.rotation * Quaternion.Euler(-90, 0, 0);
-
 				Vector3 direction = this.transform.forward;
-
 				direction.y = 0;
-
 				bulletTmp.GetComponent<Rigidbody>().velocity = direction * bulletSpeed;
-
-				//Destroy(bulletTmp, 5.0f);
-
 			}
 
 
