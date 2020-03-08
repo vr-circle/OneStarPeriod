@@ -1467,6 +1467,11 @@ PrefabInstance:
       propertyPath: existTime
       value: 15
       objectReference: {fileID: 0}
+    - target: {fileID: 3093882970141948445, guid: 144625a2e8aae7642bb1056b30d6dd7f,
+        type: 3}
+      propertyPath: healPoint
+      value: 15
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 144625a2e8aae7642bb1056b30d6dd7f, type: 3}
 --- !u!1 &1999207695

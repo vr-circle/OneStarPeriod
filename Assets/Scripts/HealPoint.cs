@@ -10,7 +10,8 @@ namespace OneStarPeriod
 		{
 			[SerializeField]
 			private float existTime;
-
+			[SerializeField]
+			private float healPoint = 100.0f;
 
 			private float deltaTime;
 			private int nowTime;
@@ -34,7 +35,7 @@ namespace OneStarPeriod
 
 				if (idamageable != null)
 				{
-					idamageable.ApplyDamage(-15);
+					idamageable.ApplyDamage(-healPoint);
 					Destroy(this.gameObject);
 				}
 			}
