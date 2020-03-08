@@ -96,16 +96,18 @@ namespace OneStarPeriod
 									{
 										float nowDistance = Vector3.Distance(this.transform.position, targetObject.transform.position);
 										speed = 360.0f / nowDistance;
-										Vector3 axis = transform.TransformDirection(Vector3.up);
-										transform.RotateAround(targetObject.transform.position, axis, speed * Time.deltaTime);
+										Vector3 velocity = transform.InverseTransformDirection(this.enemyRigidbody.velocity);
+										velocity.x = 2.0f;
+										enemyRigidbody.velocity = transform.TransformDirection(velocity);
 										break;
 									}
 								case MovementPattern.AntiClockwise:
 									{
 										float nowDistance = Vector3.Distance(this.transform.position, targetObject.transform.position);
 										speed = 360.0f / nowDistance;
-										Vector3 axis = transform.TransformDirection(Vector3.down);
-										transform.RotateAround(targetObject.transform.position, axis, speed * Time.deltaTime);
+										Vector3 velocity = transform.InverseTransformDirection(this.enemyRigidbody.velocity);
+										velocity.x = -2.0f;
+										enemyRigidbody.velocity = transform.TransformDirection(velocity);
 										break;
 									}
 								case MovementPattern.Disengage:
