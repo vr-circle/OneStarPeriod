@@ -520,6 +520,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bodyDamage: 10
   bullet: {fileID: 7972890710456275085, guid: ea957a035af66f24c8312ca06c8be952, type: 3}
+  bulletSpeed: 10
   positionMargin: 1
   timeInterval: 100000
 --- !u!82 &82639572858385936

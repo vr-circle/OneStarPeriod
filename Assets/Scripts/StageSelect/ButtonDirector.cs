@@ -47,6 +47,7 @@ namespace OneStarPeriod.StageSelectScene
 				{
 					//Debug.Log(buttonObject.name);
 					//各シーンの読み込み処理
+
 					FadeManager.FadeOut(t.text);
 				});
 

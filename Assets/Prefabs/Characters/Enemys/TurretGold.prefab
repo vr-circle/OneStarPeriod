@@ -103,7 +103,7 @@ GameObject:
   - component: {fileID: 5359385401908160309}
   - component: {fileID: 400547023330402901}
   m_Layer: 0
-  m_Name: Turret2
+  m_Name: TurretGold
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -241,6 +241,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bodyDamage: 10
   bullet: {fileID: 7972890710456275085, guid: ea957a035af66f24c8312ca06c8be952, type: 3}
+  bulletSpeed: 23
   positionMargin: 1
   timeInterval: 0.5
 --- !u!82 &400547023330402901

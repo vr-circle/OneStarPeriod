@@ -15,7 +15,7 @@ namespace OneStarPeriod
 
 				[SerializeField]
 				private GameObject bullet;
-
+				[SerializeField]
 				private float bulletSpeed = 20.0f;
 				[SerializeField]
 				private float positionMargin = 1.0f;
