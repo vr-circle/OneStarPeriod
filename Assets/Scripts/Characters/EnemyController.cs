@@ -11,6 +11,10 @@ namespace OneStarPeriod
 		{
 			public class EnemyController : MonoBehaviour
 			{
+				[SerializeField]
+				private GameObject textObject;
+				private Text text;
+
 
 				[SerializeField]
 				private List<GameObject> enemys;
@@ -27,6 +31,7 @@ namespace OneStarPeriod
 
 				private void Start()
 				{
+					text = textObject.GetComponent<Text>();
 
 					maxEnemyEntity = initEnemyNum;
 					while (initEnemyNum > 0)
@@ -39,6 +44,8 @@ namespace OneStarPeriod
 				private void Update()
 				{
 					nowEnemyNum = this.transform.childCount;
+
+					text.text = "残り"+(enemySum + nowEnemyNum).ToString();
 
 					if (enemySum > 0 && nowEnemyNum < maxEnemyEntity)
 					{
@@ -54,7 +61,7 @@ namespace OneStarPeriod
 
 				private void SpawnEnemy()
 				{
-					Instantiate(enemys[Random.Range(0, enemys.Count)], spawnPosition[Random.Range(0, spawnPosition.Count)], Quaternion.identity,this.transform);
+					Instantiate(enemys[Random.Range(0, enemys.Count)], spawnPosition[Random.Range(0, spawnPosition.Count)], Quaternion.identity, this.transform);
 
 					enemySum--;
 				}
